@@ -1,176 +1,181 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — Stackly Shop</title>
-  <meta name="description" content="Get in touch with Stackly Shop. We're here to help with orders, deliveries, and any questions about our fresh produce." />
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Contact Us — Stackly</title>
+  <meta name="description" content="Get in touch with Stackly's support team. We're here to help with orders, returns, partnerships, and any questions you have." />
+  <link rel="icon" type="image/webp" href="images/logo-stackly.webp" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <div id="page-loader" role="status" aria-label="Loading">
-    <div class="loader-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:40px;filter:brightness(10);" /></div>
-    <div class="loader-bar"></div>
-    <span class="loader-text">Loading Contact</span>
-  </div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
 
-  <nav class="navbar" id="main-navbar">
-    <div class="navbar-inner-wrap">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;" /></a>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="tracking.html">Track Order</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button class="nav-icon-btn cart-icon open-cart-btn" aria-label="Cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            <span class="nav-cart-badge" style="display:none;">0</span>
-          </button>
-          <div class="nav-login-btn-wrap"></div>
-        </div>
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav scrolled" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" width="140" height="40" /></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-icon-btn" aria-label="Cart" style="position:relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge">3</span>
+        </button>
+        <div class="nav-login-wrap"></div>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
 
-  <div class="mobile-menu">
-    <div class="mobile-menu-inner">
-      <div class="mobile-menu-header">
-        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;" /></a>
-        <button class="mobile-menu-close">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="tracking.html">Track Order</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
-      </ul>
-      <div class="mobile-login-wrap"></div>
-    </div>
-  </div>
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="shop.html" class="mobile-nav-link">Shop</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-login-wrap" style="margin-top:24px;"></div>
+  </nav>
 
   <main>
-    <!-- Hero -->
-    <div style="background:var(--primary);padding:4rem 1.5rem 3rem;text-align:center;">
-      <div class="container">
-        <span class="section-tag" style="color:var(--accent-green);background:rgba(168,204,60,0.1);border-color:rgba(168,204,60,0.2);margin-bottom:1rem;">Get In Touch</span>
-        <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;margin-bottom:0.75rem;">We'd Love to Hear From You</h1>
-        <p style="color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto;">Questions, feedback, or partnership inquiries? Our team responds within 24 hours.</p>
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div class="container" style="position:relative; z-index:1;">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="sep">/</span>
+          <span>Contact</span>
+        </div>
+        <div class="section-eyebrow" style="justify-content:center;">Get In Touch</div>
+        <h1 class="section-title" style="font-size:3rem; text-align:center;">We'd Love to <span>Hear From You</span></h1>
+        <p style="text-align:center; color:var(--text-secondary); margin:16px auto 0; max-width:480px; font-family:'Inter',sans-serif;">Our team typically responds within 1 business hour.</p>
       </div>
     </div>
 
-    <section class="section" aria-labelledby="contact-heading">
+    <!-- Contact Grid -->
+    <section class="section" style="padding-top:80px;" aria-label="Contact information and form">
       <div class="container">
-        <h2 class="section-h2" id="contact-heading" style="display:none;">Contact Stackly Shop</h2>
         <div class="contact-grid">
-          <!-- Info Cards -->
-          <div>
-            <div class="contact-info-cards">
-              <div class="contact-card" data-anim="fade-right" data-delay="100">
-                <div class="contact-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
+          <!-- Info Side -->
+          <div class="reveal-left">
+            <div class="section-eyebrow">How to Reach Us</div>
+            <h2 class="section-title" style="font-size:2.2rem;">Always <span>Here</span> For You</h2>
+            <p class="section-subtitle" style="margin-top:16px;">Whether you have a question about your order, a product, or just want to say hello — we're here and ready to help.</p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
                 <div>
-                  <div class="contact-card-title">Our Location</div>
-                  <div class="contact-card-val">14 Orchard Lane, Fresh Farm District<br/>Metro City, MC 12345</div>
+                  <div class="contact-info-label">Email</div>
+                  <div class="contact-info-value">support@stackly.com</div>
+                  <div class="contact-info-value">hello@stackly.com</div>
                 </div>
               </div>
-              <div class="contact-card" data-anim="fade-right" data-delay="150">
-                <div class="contact-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </div>
+              <div class="contact-info-item">
+                <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                 <div>
-                  <div class="contact-card-title">Email Us</div>
-                  <div class="contact-card-val">
-                    <a href="mailto:hello@stacklyshop.com" style="color:var(--primary);font-weight:600;">hello@stacklyshop.com</a><br/>
-                    <span style="font-size:0.78rem;">Response within 24 hours</span>
-                  </div>
+                  <div class="contact-info-label">Phone</div>
+                  <div class="contact-info-value">+1 (800) STACKLY</div>
+                  <div class="contact-info-value">Mon–Fri, 9am–8pm EST</div>
                 </div>
               </div>
-              <div class="contact-card" data-anim="fade-right" data-delay="200">
-                <div class="contact-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15v1.92z"/></svg>
-                </div>
+              <div class="contact-info-item">
+                <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
                 <div>
-                  <div class="contact-card-title">Call Us</div>
-                  <div class="contact-card-val">
-                    <a href="tel:+18001234567" style="color:var(--primary);font-weight:600;">+1 800 123 4567</a><br/>
-                    <span style="font-size:0.78rem;">Mon–Sun, 6am – 10pm</span>
-                  </div>
+                  <div class="contact-info-label">Headquarters</div>
+                  <div class="contact-info-value">Stackly Inc., 123 Commerce Ave</div>
+                  <div class="contact-info-value">San Francisco, CA 94105</div>
                 </div>
               </div>
-              <div class="contact-card" data-anim="fade-right" data-delay="250">
-                <div class="contact-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
+              <div class="contact-info-item">
+                <div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                 <div>
-                  <div class="contact-card-title">Business Hours</div>
-                  <div class="contact-card-val">Monday – Sunday<br/>6:00 AM – 10:00 PM</div>
+                  <div class="contact-info-label">Live Chat</div>
+                  <div class="contact-info-value">Available 24/7 on our website</div>
+                  <div class="contact-info-value">Average response: &lt;2 minutes</div>
                 </div>
               </div>
             </div>
 
-            <!-- Map Placeholder -->
-            <div class="map-placeholder">
-              <div class="map-placeholder-text">
-                <div style="font-size:2.5rem;margin-bottom:0.5rem;">🗺️</div>
-                <div style="font-weight:600;color:var(--text-mid);">Interactive Map</div>
-                <div>14 Orchard Lane, Fresh Farm District</div>
-                <a href="https://maps.google.com" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;font-size:0.82rem;margin-top:0.5rem;display:inline-block;">Open in Google Maps ↗</a>
+            <!-- Quick links -->
+            <div style="margin-top:40px; padding:28px; background:rgba(26,48,80,0.4); border:1px solid rgba(78,205,196,0.1); border-radius:var(--radius-lg);">
+              <div style="font-size:0.85rem; font-weight:700; margin-bottom:16px; letter-spacing:0.05em;">Quick Help</div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <a href="#" style="font-size:0.88rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px; transition:color 0.3s;" onmouseenter="this.style.color='var(--teal)'" onmouseleave="this.style.color='var(--text-secondary)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Track Your Order →</a>
+                <a href="#" style="font-size:0.88rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px; transition:color 0.3s;" onmouseenter="this.style.color='var(--teal)'" onmouseleave="this.style.color='var(--text-secondary)'"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Start a Return →</a>
+                <a href="#" style="font-size:0.88rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px; transition:color 0.3s;" onmouseenter="this.style.color='var(--teal)'" onmouseleave="this.style.color='var(--text-secondary)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> View FAQs →</a>
+                <a href="#" style="font-size:0.88rem; color:var(--text-secondary); display:flex; align-items:center; gap:8px; transition:color 0.3s;" onmouseenter="this.style.color='var(--teal)'" onmouseleave="this.style.color='var(--text-secondary)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Partner With Us →</a>
               </div>
             </div>
           </div>
 
           <!-- Contact Form -->
-          <div data-anim="fade-left">
-            <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-xl);padding:2.5rem;">
-              <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text-dark);margin-bottom:0.5rem;">Send Us a Message</h2>
-              <p style="color:var(--text-muted);font-size:0.88rem;margin-bottom:2rem;">Fill out the form and we'll get back to you within 24 hours.</p>
+          <div class="reveal-right">
+            <div class="contact-form-card">
+              <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:8px;">Send Us a Message</h2>
+              <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:32px; font-family:'Inter',sans-serif;">Fill in the form and we'll get back to you within 1 business hour.</p>
 
-              <form id="contact-form" novalidate>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-                  <div class="form-group">
-                    <label class="form-label" for="contact-name">Full Name *</label>
-                    <input type="text" id="contact-name" class="form-control" placeholder="Your name" required autocomplete="name" />
-                    <span class="form-error-msg">Please enter your name</span>
+              <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group" id="grp-contact-first">
+                    <label class="form-label" for="first-name">First Name</label>
+                    <input type="text" id="first-name" class="form-input" placeholder="John" />
+                    <div class="auth-error-text" id="err-contact-first">Please enter your first name.</div>
                   </div>
-                  <div class="form-group">
-                    <label class="form-label" for="contact-email">Email Address *</label>
-                    <input type="email" id="contact-email" class="form-control" placeholder="you@email.com" required autocomplete="email" />
-                    <span class="form-error-msg">Please enter a valid email</span>
+                  <div class="form-group" id="grp-contact-last">
+                    <label class="form-label" for="last-name">Last Name</label>
+                    <input type="text" id="last-name" class="form-input" placeholder="Doe" />
+                    <div class="auth-error-text" id="err-contact-last">Please enter your last name.</div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="form-label" for="contact-subject">Subject</label>
-                  <select id="contact-subject" class="form-control">
-                    <option value="">Select a topic…</option>
+
+                <div class="form-group" id="grp-contact-email">
+                  <label class="form-label" for="contact-email">Email Address</label>
+                  <input type="email" id="contact-email" class="form-input" placeholder="john@example.com" />
+                  <div class="auth-error-text" id="err-contact-email">Please enter a valid email address.</div>
+                </div>
+
+                <div class="form-group" id="grp-contact-subject">
+                  <label class="form-label" for="subject">Subject</label>
+                  <select id="subject" class="form-select">
+                    <option value="">Select a topic...</option>
                     <option>Order Issue</option>
-                    <option>Delivery Question</option>
-                    <option>Product Quality</option>
                     <option>Return / Refund</option>
-                    <option>Partnership Inquiry</option>
+                    <option>Product Question</option>
+                    <option>Partnership</option>
+                    <option>General Inquiry</option>
                     <option>Other</option>
                   </select>
+                  <div class="auth-error-text" id="err-contact-subject">Please select a subject.</div>
                 </div>
+
                 <div class="form-group">
-                  <label class="form-label" for="contact-order">Order ID (optional)</label>
-                  <input type="text" id="contact-order" class="form-control" placeholder="e.g. SC-001" />
+                  <label class="form-label" for="order-number">Order Number (optional)</label>
+                  <input type="text" id="order-number" class="form-input" placeholder="#STK-00000" />
                 </div>
-                <div class="form-group">
-                  <label class="form-label" for="contact-message">Message *</label>
-                  <textarea id="contact-message" class="form-control" placeholder="How can we help you?" rows="5" required></textarea>
-                  <span class="form-error-msg">Please enter your message</span>
+
+                <div class="form-group" id="grp-contact-message">
+                  <label class="form-label" for="message">Message</label>
+                  <textarea id="message" class="form-textarea" placeholder="Tell us how we can help you..."></textarea>
+                  <div class="auth-error-text" id="err-contact-message">Please enter a message.</div>
                 </div>
-                <button type="submit" class="btn-green" style="width:100%;justify-content:center;padding:0.9rem;">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:18px;" id="contact-submit">
                   Send Message
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
                 </button>
+
+                <p style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:16px; font-family:'Inter',sans-serif;">By sending this message, you agree to our <a href="#" style="color:var(--teal);">Privacy Policy</a>.</p>
               </form>
             </div>
           </div>
@@ -178,55 +183,140 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" style="background:var(--bg-cream-dark);" aria-labelledby="contact-faq-heading">
+    <!-- FAQ Section -->
+    <section class="section" style="padding-top:0;" aria-labelledby="faq-heading">
       <div class="container">
-        <div class="section-header">
-          <span class="section-tag"><span class="section-tag-dot"></span> Support</span>
-          <h2 class="section-h2" id="contact-faq-heading">Quick Answers</h2>
+        <div class="section-header" style="text-align:center; max-width:600px; margin:0 auto 48px;">
+          <div class="section-eyebrow reveal">Common Questions</div>
+          <h2 class="section-title reveal" id="faq-heading">Frequently Asked <span>Questions</span></h2>
         </div>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">How do I report a quality issue? <span class="faq-toggle">+</span></button>
-            <div class="faq-answer"><p>Contact us within 24 hours of delivery with a photo of the product. We'll issue a replacement or full refund immediately — no questions asked.</p></div>
+        <div style="max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:12px;" id="faq-list">
+          <div class="faq-item" style="background:rgba(26,48,80,0.4); border:1px solid rgba(78,205,196,0.1); border-radius:var(--radius-md); overflow:hidden;">
+            <button class="faq-question" style="width:100%; text-align:left; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; font-size:0.95rem; font-weight:600; color:var(--text-primary); background:none; font-family:'Outfit',sans-serif; cursor:none;" aria-expanded="false">
+              How long does shipping take?
+              <span class="faq-icon" style="font-size:1.2rem; color:var(--teal); transition:transform 0.3s; flex-shrink:0;">+</span>
+            </button>
+            <div class="faq-answer" style="padding:0 24px; max-height:0; overflow:hidden; transition:all 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.7; padding-bottom:20px; font-family:'Inter',sans-serif;">Standard shipping takes 3-5 business days. Express shipping (1-2 business days) is available at checkout. International orders typically take 7-14 business days depending on destination.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">Can I cancel my order? <span class="faq-toggle">+</span></button>
-            <div class="faq-answer"><p>Orders can be cancelled up to 2 hours before your scheduled delivery slot for a full refund. Contact us via phone or chat for fastest service.</p></div>
+
+          <div class="faq-item" style="background:rgba(26,48,80,0.4); border:1px solid rgba(78,205,196,0.1); border-radius:var(--radius-md); overflow:hidden;">
+            <button class="faq-question" style="width:100%; text-align:left; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; font-size:0.95rem; font-weight:600; color:var(--text-primary); background:none; font-family:'Outfit',sans-serif; cursor:none;" aria-expanded="false">
+              What is your return policy?
+              <span class="faq-icon" style="font-size:1.2rem; color:var(--teal); transition:transform 0.3s; flex-shrink:0;">+</span>
+            </button>
+            <div class="faq-answer" style="padding:0 24px; max-height:0; overflow:hidden; transition:all 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.7; padding-bottom:20px; font-family:'Inter',sans-serif;">We offer hassle-free 30-day returns on all products. Items must be in original, unused condition with tags attached. Simply initiate a return from your account dashboard and we'll send you a prepaid return label.</p>
+            </div>
           </div>
-          <div class="faq-item">
-            <button class="faq-question" aria-expanded="false">Do you offer bulk/business orders? <span class="faq-toggle">+</span></button>
-            <div class="faq-answer"><p>Yes! We offer special pricing for restaurants, cafes, and businesses. Contact our B2B team at business@stacklyshop.com for a custom quote.</p></div>
+
+          <div class="faq-item" style="background:rgba(26,48,80,0.4); border:1px solid rgba(78,205,196,0.1); border-radius:var(--radius-md); overflow:hidden;">
+            <button class="faq-question" style="width:100%; text-align:left; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; font-size:0.95rem; font-weight:600; color:var(--text-primary); background:none; font-family:'Outfit',sans-serif; cursor:none;" aria-expanded="false">
+              Are all products authentic and genuine?
+              <span class="faq-icon" style="font-size:1.2rem; color:var(--teal); transition:transform 0.3s; flex-shrink:0;">+</span>
+            </button>
+            <div class="faq-answer" style="padding:0 24px; max-height:0; overflow:hidden; transition:all 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.7; padding-bottom:20px; font-family:'Inter',sans-serif;">Absolutely. Every product on Stackly is 100% authentic and sourced directly from brands or authorized distributors. We have a zero-tolerance policy for counterfeit goods and conduct thorough authentication on all items.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" style="background:rgba(26,48,80,0.4); border:1px solid rgba(78,205,196,0.1); border-radius:var(--radius-md); overflow:hidden;">
+            <button class="faq-question" style="width:100%; text-align:left; padding:20px 24px; display:flex; align-items:center; justify-content:space-between; font-size:0.95rem; font-weight:600; color:var(--text-primary); background:none; font-family:'Outfit',sans-serif; cursor:none;" aria-expanded="false">
+              Do you ship internationally?
+              <span class="faq-icon" style="font-size:1.2rem; color:var(--teal); transition:transform 0.3s; flex-shrink:0;">+</span>
+            </button>
+            <div class="faq-answer" style="padding:0 24px; max-height:0; overflow:hidden; transition:all 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.7; padding-bottom:20px; font-family:'Inter',sans-serif;">Yes! We ship to 50+ countries worldwide. International shipping rates and times vary by destination. You can view available shipping options at checkout. Duties and taxes may apply depending on your country.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer style="background:var(--bg-hero);color:rgba(255,255,255,0.7);padding:2.5rem 0;text-align:center;">
+  <footer class="footer" role="contentinfo">
     <div class="container">
-      <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;filter:brightness(10);margin:0 auto 1rem;" /></a>
-      <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:0.85rem;margin-bottom:1rem;">
-        <a href="index.html" style="color:rgba(255,255,255,0.6);">Home</a>
-        <a href="shop.html" style="color:rgba(255,255,255,0.6);">Shop</a>
-        <a href="about.html" style="color:rgba(255,255,255,0.6);">About</a>
-        <a href="contact.html" style="color:rgba(255,255,255,0.6);">Contact</a>
+      <div class="footer-grid">
+        <div>
+          <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly" height="36" /></a>
+          <p class="footer-brand-desc">Premium curated marketplace delivering exceptional products worldwide.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">📷</a>
+            <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-btn" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Shop</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html" class="footer-link">Electronics</a></li>
+            <li><a href="shop.html" class="footer-link">Fashion</a></li>
+            <li><a href="shop.html" class="footer-link">Beauty</a></li>
+            <li><a href="shop.html" class="footer-link">Accessories</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Company</h3>
+          <ul class="footer-links">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+            <li><a href="#" class="footer-link">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-col-title">Support</h3>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Help Center</a></li>
+            <li><a href="#" class="footer-link">Returns</a></li>
+            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          </ul>
+        </div>
       </div>
-      <p style="font-size:0.78rem;color:rgba(255,255,255,0.3);">© 2026 Stackly Shop. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p class="footer-bottom-text">© 2026 <span>Stackly</span>. All rights reserved.</p>
+        <div class="footer-payments">
+          <span class="payment-badge">VISA</span><span class="payment-badge">MC</span><span class="payment-badge">PayPal</span>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true">
-    <div class="cart-header"><span class="cart-title">Shopping Cart</span><button class="cart-close" id="cart-close">&times;</button></div>
-    <div class="cart-items" id="cart-items-list"></div>
-    <div class="cart-footer">
-      <div class="cart-total"><span>Total</span><span class="cart-total-price" id="cart-total-val">$0.00</span></div>
-      <button class="btn-primary" id="cart-checkout-btn" style="width:100%;justify-content:center;">Proceed to Checkout</button>
-    </div>
-  </div>
-  <div id="toast-container" aria-live="polite"></div>
+  <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        const answer = item.querySelector('.faq-answer');
+        const icon = this.querySelector('.faq-icon');
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.querySelector('.faq-answer').style.maxHeight = '0px';
+          i.querySelector('.faq-answer').style.padding = '0 24px';
+          i.querySelector('.faq-icon').style.transform = '';
+          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          icon.style.transform = 'rotate(45deg)';
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+
+
+
+
+
+

@@ -1,562 +1,328 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Dashboard — Stackly Shop</title>
-  <meta name="description" content="Manage your Stackly Shop account, track orders, manage your wishlist, and update your profile." />
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Dashboard — Stackly Premium</title>
+  <meta name="description" content="Manage your Stackly account, view orders, and update your profile." />
+  <link rel="icon" type="image/webp" href="images/logo-stackly.webp" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
 
-  <div id="page-loader" role="status" aria-label="Loading">
-    <div class="loader-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:40px;filter:brightness(10);" /></div>
-    <div class="loader-bar"></div>
-    <span class="loader-text">Loading Dashboard</span>
-  </div>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
 
-  <!-- Compact Top Navbar for Dashboard -->
-  <nav class="navbar" id="main-navbar" style="top:0;border-radius:0;width:100%;margin:0;max-width:100%;">
-    <div class="navbar-inner-wrap" style="border-radius:0;border-left:none;border-right:none;border-top:none;">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;" /></a>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="tracking.html">Track Order</a></li>
-        </ul>
-        <div class="nav-actions">
-          <button class="nav-icon-btn cart-icon open-cart-btn" aria-label="Cart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-            <span class="nav-cart-badge" style="display:none;">0</span>
-          </button>
-          <div class="nav-login-btn-wrap"></div>
-        </div>
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <!-- Global Mouse Glow -->
+  <div class="mouse-glow"></div>
+
+  <!-- ─── Navigation ─── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Stackly Home">
+        <img src="images/logo-stackly.webp" alt="Stackly" width="140" height="40" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" aria-label="Shopping cart" style="position:relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge">3</span>
+        </button>
+        <div class="nav-login-wrap"></div>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <div class="mobile-menu">
-    <div class="mobile-menu-inner">
-      <div class="mobile-menu-header">
-        <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;" /></a>
-        <button class="mobile-menu-close">&times;</button>
-      </div>
-      <ul class="mobile-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="tracking.html">Track Order</a></li>
-      </ul>
-      <div class="mobile-login-wrap"></div>
+  <!-- Mobile Nav -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="shop.html" class="mobile-nav-link">Shop</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+    <div class="mobile-login-wrap" style="margin-top:24px;"></div>
+    <div style="margin-top:24px;">
+      <a href="shop.html" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">Shop Now</a>
     </div>
-  </div>
+  </nav>
 
-  <!-- Breadcrumb sub-header -->
-  <div class="dash-mini-header">
-    <div class="container">
-      <div class="dash-mini-header-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-          <span>Dashboard</span>
+  <!-- ─── Dashboard Content ─── -->
+  <main class="dashboard-page">
+    <div class="dash-layout">
+      
+      <!-- SIDEBAR -->
+      <aside class="dash-sidebar">
+        <div class="dash-user-info">
+          <div class="dash-avatar-large" id="dash-avatar">U</div>
+          <h2 style="font-size:1.2rem; font-weight:700; color:var(--white);" id="dash-name">User Name</h2>
+          <p style="font-size:0.85rem; color:var(--text-secondary);" id="dash-email">user@example.com</p>
+        </div>
+
+        <nav class="dash-nav">
+          <a href="#overview" class="dash-nav-item active" id="nav-overview" onclick="switchTab('overview', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Overview
+          </a>
+          <a href="#orders" class="dash-nav-item" id="nav-orders" onclick="switchTab('orders', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            My Orders
+          </a>
+          <a href="#wishlist" class="dash-nav-item" id="nav-wishlist" onclick="switchTab('wishlist', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Wishlist
+          </a>
+          <a href="#profile" class="dash-nav-item" id="nav-profile" onclick="switchTab('profile', this)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            My Profile
+          </a>
+          <button class="dash-nav-item" style="color:var(--error); margin-top:24px; width:100%; background:none; border:none; text-align:left;" onclick="authLogout()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+          </button>
         </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="dash-main">
+
+        <!-- OVERVIEW SECTION -->
+        <section id="section-overview" class="dash-section active">
+          <h1 class="dash-section-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            Overview
+          </h1>
+          
+          <div class="dash-stats">
+            <div class="dash-stat-card">
+              <div class="dash-stat-value">12</div>
+              <div class="dash-stat-label">Total Orders</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-value">$1,499</div>
+              <div class="dash-stat-label">Total Spent</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-value">2</div>
+              <div class="dash-stat-label">Active Orders</div>
+            </div>
+          </div>
+
+          <h3 style="font-size:1.2rem; font-weight:700; margin-bottom:16px;">Recent Activity</h3>
+          
+          <div class="order-item">
+            <div class="order-img"><img src="images/product_headphones.webp" alt="Headphones"></div>
+            <div class="order-info">
+              <h4>Aura Sonic Pro Headphones</h4>
+              <p>Order #ORD-84920 · 2 days ago · $349.00</p>
+            </div>
+            <div class="order-status status-transit">In Transit</div>
+          </div>
+          
+          <div class="order-item">
+            <div class="order-img"><img src="images/product_smartwatch.webp" alt="Smartwatch"></div>
+            <div class="order-info">
+              <h4>Chrono X Smartwatch</h4>
+              <p>Order #ORD-84815 · 14 days ago · $299.00</p>
+            </div>
+            <div class="order-status status-delivered">Delivered</div>
+          </div>
+        </section>
+
+        <!-- ORDERS SECTION -->
+        <section id="section-orders" class="dash-section">
+          <h1 class="dash-section-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            My Orders
+          </h1>
+          
+          <div class="order-item">
+            <div class="order-img"><img src="images/product_headphones.webp" alt="Headphones"></div>
+            <div class="order-info">
+              <h4>Aura Sonic Pro Headphones</h4>
+              <p>Order #ORD-84920 · 2 days ago · $349.00</p>
+            </div>
+            <div class="order-status status-transit">In Transit</div>
+          </div>
+          
+          <div class="order-item">
+            <div class="order-img"><img src="images/product_laptop.webp" alt="Laptop"></div>
+            <div class="order-info">
+              <h4>Zenith Studio Laptop</h4>
+              <p>Order #ORD-84882 · 5 days ago · $1,299.00</p>
+            </div>
+            <div class="order-status status-transit">Shipped</div>
+          </div>
+
+          <div class="order-item">
+            <div class="order-img"><img src="images/product_smartwatch.webp" alt="Smartwatch"></div>
+            <div class="order-info">
+              <h4>Chrono X Smartwatch</h4>
+              <p>Order #ORD-84815 · 14 days ago · $299.00</p>
+            </div>
+            <div class="order-status status-delivered">Delivered</div>
+          </div>
+          
+          <div class="order-item">
+            <div class="order-img"><img src="images/product_speaker.webp" alt="Speaker"></div>
+            <div class="order-info">
+              <h4>BassBox Portable Speaker</h4>
+              <p>Order #ORD-84701 · 2 months ago · $149.00</p>
+            </div>
+            <div class="order-status status-delivered">Delivered</div>
+          </div>
+        </section>
+
+        <!-- WISHLIST SECTION -->
+        <section id="section-wishlist" class="dash-section">
+          <h1 class="dash-section-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Wishlist
+          </h1>
+          
+          <div class="products-grid" style="grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:24px;">
+            <div class="product-card" style="margin-bottom:0;">
+              <div class="product-img-wrap" style="height:220px;">
+                <img src="images/product_sneakers.webp" alt="Sneakers" class="product-img" />
+              </div>
+              <div class="product-info" style="padding:16px;">
+                <h3 class="product-title" style="font-size:1rem;">Aero Step Sneakers</h3>
+                <p class="product-price" style="font-size:0.9rem;">$129.00</p>
+                <button class="btn btn-primary btn-sm" style="width:100%; margin-top:12px; justify-content:center;">Move to Cart</button>
+              </div>
+            </div>
+            
+            <div class="product-card" style="margin-bottom:0;">
+              <div class="product-img-wrap" style="height:220px;">
+                <img src="images/product_sunglasses.webp" alt="Sunglasses" class="product-img" />
+              </div>
+              <div class="product-info" style="padding:16px;">
+                <h3 class="product-title" style="font-size:1rem;">Eclipse Aviators</h3>
+                <p class="product-price" style="font-size:0.9rem;">$89.00</p>
+                <button class="btn btn-primary btn-sm" style="width:100%; margin-top:12px; justify-content:center;">Move to Cart</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROFILE SECTION -->
+        <section id="section-profile" class="dash-section">
+          <h1 class="dash-section-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            My Profile
+          </h1>
+          
+          <div style="max-width: 500px; background: rgba(17,34,54,0.4); padding:32px; border-radius:var(--radius-lg); border:1px solid rgba(255,255,255,0.05);">
+            <form id="profile-form">
+              <div class="dash-form-group">
+                <label for="prof-name">Full Name</label>
+                <input type="text" id="prof-name" required>
+              </div>
+              <div class="dash-form-group">
+                <label for="prof-email">Email Address</label>
+                <input type="email" id="prof-email" required>
+              </div>
+              <div class="dash-form-group">
+                <label for="prof-password">New Password (Optional)</label>
+                <input type="password" id="prof-password" placeholder="Leave blank to keep current password">
+              </div>
+              <button type="submit" class="btn btn-primary" id="prof-save-btn">Save Changes</button>
+            </form>
+          </div>
+        </section>
+
       </div>
     </div>
-  </div>
-
-  <main>
-    <div class="dashboard-layout">
-      <div class="container">
-        <div class="dash-grid">
-
-          <!-- ── SIDEBAR ── -->
-          <aside class="dash-sidebar" aria-label="Dashboard navigation">
-            <div class="dash-user-info" id="dash-user-info">
-              <div class="dash-avatar" id="dash-avatar">U</div>
-              <div class="dash-user-name" id="dash-user-name">User</div>
-              <div class="dash-user-email" id="dash-user-email">user@email.com</div>
-              <span class="role-badge" id="dash-role">Customer</span>
-            </div>
-            <nav class="dash-nav" aria-label="Dashboard sections">
-              <button class="dash-nav-item active" data-tab="overview" id="nav-overview" aria-selected="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                Overview
-              </button>
-              <button class="dash-nav-item" data-tab="orders" id="nav-orders" aria-selected="false">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                My Orders
-              </button>
-              <button class="dash-nav-item" data-tab="wishlist" id="nav-wishlist" aria-selected="false">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                Wishlist
-              </button>
-              <button class="dash-nav-item" data-tab="profile" id="nav-profile" aria-selected="false">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Profile Settings
-              </button>
-              <div style="height:1px;background:var(--border-light);margin:0.5rem 0;"></div>
-              <a href="shop.html" class="dash-nav-item" style="text-decoration:none;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
-                Go to Shop
-              </a>
-              <button class="dash-nav-item" onclick="authLogout()" style="color:#ef4444;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-                Sign Out
-              </button>
-            </nav>
-          </aside>
-
-          <!-- ── MAIN CONTENT ── -->
-          <div class="dash-main" role="main">
-
-            <!-- ── OVERVIEW ── -->
-            <section class="dash-section active" id="section-overview" aria-labelledby="overview-title">
-              <h1 class="dash-section-title" id="overview-title">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                Overview
-              </h1>
-
-              <!-- Stats -->
-              <div class="dash-stats" aria-label="Account statistics">
-                <div class="dash-stat-card">
-                  <div class="stat-value" id="stat-orders">7</div>
-                  <div class="stat-label">Total Orders</div>
-                </div>
-                <div class="dash-stat-card">
-                  <div class="stat-value" id="stat-wishlist-count">4</div>
-                  <div class="stat-label">Wishlist Items</div>
-                </div>
-                <div class="dash-stat-card">
-                  <div class="stat-value">840</div>
-                  <div class="stat-label">Reward Points</div>
-                </div>
-                <div class="dash-stat-card">
-                  <div class="stat-value">$214</div>
-                  <div class="stat-label">Total Spent</div>
-                </div>
-              </div>
-
-              <!-- Welcome Banner -->
-              <div style="background:linear-gradient(135deg,var(--primary),var(--primary-mid));border-radius:var(--border-radius-lg);padding:2rem;margin-bottom:2rem;position:relative;overflow:hidden;" data-anim="fade-up">
-                <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
-                <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
-                  <div>
-                    <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.35rem;">Welcome back</p>
-                    <h2 style="font-family:var(--font-display);font-size:1.5rem;color:#fff;font-weight:700;" id="welcome-name">Hello there! 👋</h2>
-                    <p style="color:rgba(255,255,255,0.65);font-size:0.88rem;margin-top:0.25rem;">You have 840 reward points. Redeem for free produce!</p>
-                  </div>
-                  <div style="display:flex;gap:0.75rem;flex-shrink:0;">
-                    <a href="shop.html" class="btn-primary" style="font-size:0.85rem;padding:0.65rem 1.25rem;">Shop Now</a>
-                    <button class="btn-secondary" onclick="switchTab('orders')" style="font-size:0.85rem;padding:0.65rem 1.25rem;border-color:rgba(255,255,255,0.3);">My Orders</button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Recent Orders -->
-              <div>
-                <div class="recent-orders-title">Recent Orders</div>
-                <div class="order-item" data-anim="fade-up" data-delay="100">
-                  <div class="order-img"><img src="images/product_mango.webp" alt="Mango" /></div>
-                  <div class="order-info">
-                    <h4>Harum Manis Mango (2kg)</h4>
-                    <p>Order SC-001 · Jun 10, 2026</p>
-                  </div>
-                  <div>
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$7.00</div>
-                    <span class="order-status delivered">Delivered</span>
-                  </div>
-                </div>
-                <div class="order-item" data-anim="fade-up" data-delay="150">
-                  <div class="order-img"><img src="images/product_grapes.webp" alt="Grapes" /></div>
-                  <div class="order-info">
-                    <h4>Muscat Grapes (1kg) + Kiwi (500g)</h4>
-                    <p>Order SC-002 · Jun 11, 2026</p>
-                  </div>
-                  <div>
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$11.50</div>
-                    <span class="order-status shipped">Shipped</span>
-                  </div>
-                </div>
-                <div class="order-item" data-anim="fade-up" data-delay="200">
-                  <div class="order-img"><img src="images/product_apple.webp" alt="Apple" /></div>
-                  <div class="order-info">
-                    <h4>Premium Red Apple Bundle (3kg)</h4>
-                    <p>Order SC-003 · Jun 12, 2026</p>
-                  </div>
-                  <div>
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$13.50</div>
-                    <span class="order-status processing">Processing</span>
-                  </div>
-                </div>
-                <button class="btn-outline" onclick="switchTab('orders')" style="margin-top:1rem;font-size:0.85rem;">View All Orders</button>
-              </div>
-
-              <!-- Reward Progress -->
-              <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-lg);padding:1.5rem;margin-top:2rem;" data-anim="fade-up">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
-                  <div>
-                    <div style="font-weight:700;color:var(--text-dark);margin-bottom:0.2rem;">Reward Points</div>
-                    <div style="font-size:0.82rem;color:var(--text-muted);">840 / 1000 pts to next level</div>
-                  </div>
-                  <div style="font-family:var(--font-mono);font-size:1.5rem;font-weight:900;color:var(--primary);">840 pts</div>
-                </div>
-                <div style="background:var(--bg-cream-dark);border-radius:99px;height:8px;overflow:hidden;">
-                  <div style="width:84%;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary-light));border-radius:99px;transition:width 1s ease;"></div>
-                </div>
-                <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--text-muted);margin-top:0.4rem;">
-                  <span>Gold Member</span>
-                  <span>160 pts to Platinum</span>
-                </div>
-              </div>
-            </section>
-
-            <!-- ── ORDERS ── -->
-            <section class="dash-section" id="section-orders" aria-labelledby="orders-title">
-              <h2 class="dash-section-title" id="orders-title">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                My Orders
-              </h2>
-
-              <div style="margin-bottom:1.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
-                <button class="filter-btn active" onclick="filterOrders(this,'all')">All (7)</button>
-                <button class="filter-btn" onclick="filterOrders(this,'delivered')">Delivered (5)</button>
-                <button class="filter-btn" onclick="filterOrders(this,'shipped')">Shipped (1)</button>
-                <button class="filter-btn" onclick="filterOrders(this,'processing')">Processing (1)</button>
-              </div>
-
-              <div id="orders-list">
-                <div class="order-item" data-status="delivered">
-                  <div class="order-img"><img src="images/product_mango.webp" alt="Mango" /></div>
-                  <div class="order-info">
-                    <h4>Harum Manis Mango (2kg)</h4>
-                    <p>Order SC-001 · Jun 10, 2026 · 2kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$7.00</div>
-                    <span class="order-status delivered">Delivered</span>
-                    <br/><a href="tracking.html" style="font-size:0.75rem;color:var(--primary);font-weight:600;margin-top:0.5rem;display:inline-block;">Track ↗</a>
-                  </div>
-                </div>
-                <div class="order-item" data-status="shipped">
-                  <div class="order-img"><img src="images/product_grapes.webp" alt="Grapes" /></div>
-                  <div class="order-info">
-                    <h4>Muscat Grapes + Kiwi Bundle</h4>
-                    <p>Order SC-002 · Jun 11, 2026 · 1.5kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$11.50</div>
-                    <span class="order-status shipped">Shipped</span>
-                    <br/><a href="tracking.html" style="font-size:0.75rem;color:var(--primary);font-weight:600;margin-top:0.5rem;display:inline-block;">Track ↗</a>
-                  </div>
-                </div>
-                <div class="order-item" data-status="processing">
-                  <div class="order-img"><img src="images/product_apple.webp" alt="Apple" /></div>
-                  <div class="order-info">
-                    <h4>Premium Red Apple Bundle</h4>
-                    <p>Order SC-003 · Jun 12, 2026 · 3kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$13.50</div>
-                    <span class="order-status processing">Processing</span>
-                    <br/><a href="tracking.html" style="font-size:0.75rem;color:var(--primary);font-weight:600;margin-top:0.5rem;display:inline-block;">Track ↗</a>
-                  </div>
-                </div>
-                <div class="order-item" data-status="delivered">
-                  <div class="order-img"><img src="images/product_banana.webp" alt="Banana" /></div>
-                  <div class="order-info">
-                    <h4>Sweet Banana (5kg)</h4>
-                    <p>Order SC-004 · Jun 5, 2026 · 5kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$17.50</div>
-                    <span class="order-status delivered">Delivered</span>
-                    <br/><a href="tracking.html" style="font-size:0.75rem;color:var(--primary);font-weight:600;margin-top:0.5rem;display:inline-block;">Track ↗</a>
-                  </div>
-                </div>
-                <div class="order-item" data-status="delivered">
-                  <div class="order-img"><img src="images/product_kiwi.webp" alt="Kiwi" /></div>
-                  <div class="order-info">
-                    <h4>Imported Green Kiwi (2kg)</h4>
-                    <p>Order SC-005 · Jun 1, 2026 · 2kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$12.00</div>
-                    <span class="order-status delivered">Delivered</span>
-                  </div>
-                </div>
-                <div class="order-item" data-status="delivered">
-                  <div class="order-img"><img src="images/hero_strawberry.webp" alt="Strawberry" /></div>
-                  <div class="order-info">
-                    <h4>Fresh Strawberries (1kg)</h4>
-                    <p>Order SC-006 · May 28, 2026 · 1kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$9.00</div>
-                    <span class="order-status delivered">Delivered</span>
-                  </div>
-                </div>
-                <div class="order-item" data-status="delivered">
-                  <div class="order-img"><img src="images/product_papaya.webp" alt="Papaya" /></div>
-                  <div class="order-info">
-                    <h4>California Papaya (3kg)</h4>
-                    <p>Order SC-007 · May 20, 2026 · 3kg</p>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:var(--font-mono);font-weight:700;color:var(--primary);margin-bottom:0.35rem;">$16.50</div>
-                    <span class="order-status delivered">Delivered</span>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <!-- ── WISHLIST ── -->
-            <section class="dash-section" id="section-wishlist" aria-labelledby="wishlist-title">
-              <h2 class="dash-section-title" id="wishlist-title">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                My Wishlist
-              </h2>
-              <div id="wishlist-content">
-                <!-- Loaded dynamically -->
-              </div>
-            </section>
-
-            <!-- ── PROFILE ── -->
-            <section class="dash-section" id="section-profile" aria-labelledby="profile-title">
-              <h2 class="dash-section-title" id="profile-title">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                Profile Settings
-              </h2>
-
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-                <!-- Profile Form -->
-                <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-lg);padding:2rem;">
-                  <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:1.5rem;">Personal Information</h3>
-                  <form id="profile-form" novalidate>
-                    <div class="form-group">
-                      <label class="form-label" for="profile-name">Full Name</label>
-                      <input type="text" id="profile-name" class="form-control" placeholder="Your name" />
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label" for="profile-email">Email Address</label>
-                      <input type="email" id="profile-email" class="form-control" placeholder="your@email.com" />
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label" for="profile-phone">Phone Number</label>
-                      <input type="tel" id="profile-phone" class="form-control" placeholder="+1 234 567 8900" />
-                    </div>
-                    <div class="form-group">
-                      <label class="form-label" for="profile-address">Delivery Address</label>
-                      <textarea id="profile-address" class="form-control" rows="3" placeholder="Your full delivery address"></textarea>
-                    </div>
-                    <button type="submit" class="btn-green" style="width:100%;justify-content:center;">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                      Save Changes
-                    </button>
-                  </form>
-                </div>
-
-                <!-- Security + Preferences -->
-                <div style="display:flex;flex-direction:column;gap:1.5rem;">
-                  <!-- Password Change -->
-                  <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-lg);padding:2rem;">
-                    <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:1.5rem;">Change Password</h3>
-                    <form id="password-form" novalidate>
-                      <div class="form-group">
-                        <label class="form-label" for="current-pw">Current Password</label>
-                        <input type="password" id="current-pw" class="form-control" placeholder="Current password" autocomplete="current-password" />
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label" for="new-pw">New Password</label>
-                        <input type="password" id="new-pw" class="form-control" placeholder="New password (6+ chars)" autocomplete="new-password" />
-                      </div>
-                      <div class="form-group">
-                        <label class="form-label" for="confirm-pw">Confirm New Password</label>
-                        <input type="password" id="confirm-pw" class="form-control" placeholder="Repeat new password" autocomplete="new-password" />
-                      </div>
-                      <button type="submit" class="btn-outline" style="width:100%;justify-content:center;">Update Password</button>
-                    </form>
-                  </div>
-
-                  <!-- Notification Preferences -->
-                  <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-lg);padding:2rem;">
-                    <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:1.25rem;">Notifications</h3>
-                    <div style="display:flex;flex-direction:column;gap:1rem;">
-                      <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                        <span style="font-size:0.88rem;font-weight:500;color:var(--text-dark);">Order updates</span>
-                        <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px;" />
-                      </label>
-                      <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                        <span style="font-size:0.88rem;font-weight:500;color:var(--text-dark);">Delivery notifications</span>
-                        <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px;" />
-                      </label>
-                      <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                        <span style="font-size:0.88rem;font-weight:500;color:var(--text-dark);">Weekly fresh picks email</span>
-                        <input type="checkbox" style="accent-color:var(--primary);width:18px;height:18px;" />
-                      </label>
-                      <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                        <span style="font-size:0.88rem;font-weight:500;color:var(--text-dark);">Reward point reminders</span>
-                        <input type="checkbox" checked style="accent-color:var(--primary);width:18px;height:18px;" />
-                      </label>
-                    </div>
-                    <button onclick="window.showToast('Notification preferences saved!','success')" class="btn-outline" style="width:100%;justify-content:center;margin-top:1.25rem;font-size:0.88rem;">Save Preferences</button>
-                  </div>
-
-                  <!-- Danger Zone -->
-                  <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:var(--border-radius-lg);padding:1.5rem;">
-                    <h3 style="font-size:1rem;font-weight:700;color:#991b1b;margin-bottom:0.75rem;">Danger Zone</h3>
-                    <p style="font-size:0.82rem;color:#b91c1c;margin-bottom:1rem;">Permanently delete your account and all associated data. This action cannot be undone.</p>
-                    <button onclick="window.showToast('Account deletion would require email confirmation. (Demo)','error')" style="background:transparent;border:1.5px solid #fca5a5;color:#dc2626;padding:0.6rem 1.25rem;border-radius:99px;font-size:0.85rem;font-weight:600;font-family:var(--font-mono);cursor:pointer;transition:all 0.2s;">Delete Account</button>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-          </div><!-- /dash-main -->
-        </div><!-- /dash-grid -->
-      </div><!-- /container -->
-    </div><!-- /dashboard-layout -->
   </main>
 
-  <div class="cart-overlay" id="cart-overlay"></div>
-  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true">
-    <div class="cart-header"><span class="cart-title">Shopping Cart</span><button class="cart-close" id="cart-close">&times;</button></div>
-    <div class="cart-items" id="cart-items-list"></div>
-    <div class="cart-footer">
-      <div class="cart-total"><span>Total</span><span class="cart-total-price" id="cart-total-val">$0.00</span></div>
-      <button class="btn-primary" id="cart-checkout-btn" style="width:100%;justify-content:center;">Proceed to Checkout</button>
-    </div>
-  </div>
-
-  <div id="toast-container" aria-live="polite"></div>
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
   <script>
-    /* ── DASHBOARD INIT ── */
+    // Tab switching logic
+    function switchTab(tabId, el) {
+      // Hide all sections
+      document.querySelectorAll('.dash-section').forEach(sec => sec.classList.remove('active'));
+      // Remove active class from all nav items
+      document.querySelectorAll('.dash-nav-item').forEach(nav => nav.classList.remove('active'));
+      
+      // Show target section
+      document.getElementById(`section-${tabId}`).classList.add('active');
+      // Set active nav item
+      if (el) {
+        el.classList.add('active');
+      } else {
+        document.getElementById(`nav-${tabId}`).classList.add('active');
+      }
+    }
+
+    // Initialize Dashboard
     document.addEventListener('DOMContentLoaded', () => {
-      // Auth guard
       const user = authGetUser();
+      
+      // Redirect to login if not authenticated
       if (!user) {
         window.location.href = 'login.html';
         return;
       }
 
-      // Populate user info
-      const initial = (user.name || 'U')[0].toUpperCase();
-      document.getElementById('dash-avatar').textContent = initial;
-      document.getElementById('dash-user-name').textContent = user.name || 'User';
-      document.getElementById('dash-user-email').textContent = user.email || '';
-      document.getElementById('dash-role').textContent = user.role ? (user.role.charAt(0).toUpperCase() + user.role.slice(1)) : 'Customer';
+      // Populate user info in sidebar
+      document.getElementById('dash-name').innerText = user.name;
+      document.getElementById('dash-email').innerText = user.email;
+      document.getElementById('dash-avatar').innerText = (user.name || 'U')[0].toUpperCase();
 
-      const welcomeName = document.getElementById('welcome-name');
-      if (welcomeName) welcomeName.textContent = `Hello, ${user.name ? user.name.split(' ')[0] : 'there'}! 👋`;
+      // Populate profile form
+      document.getElementById('prof-name').value = user.name;
+      document.getElementById('prof-email').value = user.email;
 
-      // Pre-fill profile form
-      const profileName = document.getElementById('profile-name');
-      const profileEmail = document.getElementById('profile-email');
-      if (profileName) profileName.value = user.name || '';
-      if (profileEmail) profileEmail.value = user.email || '';
-
-      // Tab system
-      const navBtns = document.querySelectorAll('.dash-nav-item[data-tab]');
-      navBtns.forEach(btn => {
-        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
-      });
-
-      // Handle hash navigation (e.g., dashboard.html#orders)
-      const hash = window.location.hash.replace('#','');
-      if (hash && ['overview','orders','wishlist','profile'].includes(hash)) {
+      // Handle URL hash for direct linking
+      const hash = window.location.hash.replace('#', '');
+      if (['overview', 'orders', 'wishlist', 'profile'].includes(hash)) {
         switchTab(hash);
       }
 
-      // Wishlist sync
-      renderDashWishlist();
-
-      // Profile form
-      const profileForm = document.getElementById('profile-form');
-      profileForm && profileForm.addEventListener('submit', (e) => {
+      // Handle Profile Save
+      document.getElementById('profile-form').addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('profile-name').value.trim();
-        const email = document.getElementById('profile-email').value.trim();
-        if (name) {
-          const user = authGetUser();
-          if (user) { user.name = name; user.email = email; localStorage.setItem('sc_user', JSON.stringify(user)); }
+        const btn = document.getElementById('prof-save-btn');
+        const newName = document.getElementById('prof-name').value;
+        const newEmail = document.getElementById('prof-email').value;
+        const newPass = document.getElementById('prof-password').value || user.password;
+
+        btn.innerText = 'Saving...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          // Update localStorage
+          authSignup(newName, newEmail, newPass); // Reuses logic to overwrite user obj
+          
+          // Update DOM
+          document.getElementById('dash-name').innerText = newName;
+          document.getElementById('dash-email').innerText = newEmail;
+          document.getElementById('dash-avatar').innerText = newName[0].toUpperCase();
           authSyncNavbar();
-          document.getElementById('dash-user-name').textContent = name;
-          document.getElementById('dash-avatar').textContent = name[0].toUpperCase();
-        }
-        window.showToast('Profile updated successfully!', 'success');
-      });
 
-      // Password form
-      const pwForm = document.getElementById('password-form');
-      pwForm && pwForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const newPw = document.getElementById('new-pw').value;
-        const confirmPw = document.getElementById('confirm-pw').value;
-        if (newPw.length < 6) { window.showToast('Password must be at least 6 characters.', 'error'); return; }
-        if (newPw !== confirmPw) { window.showToast('Passwords do not match.', 'error'); return; }
-        window.showToast('Password updated successfully!', 'success');
-        pwForm.reset();
+          btn.innerText = 'Saved Successfully';
+          setTimeout(() => {
+            btn.innerText = 'Save Changes';
+            btn.disabled = false;
+          }, 2000);
+        }, 800);
       });
-
-      // Update wishlist count stat
-      const wishlistCountEl = document.getElementById('stat-wishlist-count');
-      if (wishlistCountEl) wishlistCountEl.textContent = wishlistGet().length || 4;
     });
-
-    function switchTab(tab) {
-      document.querySelectorAll('.dash-nav-item[data-tab]').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.tab === tab);
-        btn.setAttribute('aria-selected', btn.dataset.tab === tab);
-      });
-      document.querySelectorAll('.dash-section').forEach(sec => {
-        sec.classList.toggle('active', sec.id === 'section-' + tab);
-      });
-      if (tab === 'wishlist') renderDashWishlist();
-      window.history.replaceState(null, '', '#' + tab);
-    }
-
-    function filterOrders(btn, status) {
-      document.querySelectorAll('#section-orders .filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('#orders-list .order-item').forEach(item => {
-        item.style.display = (status === 'all' || item.dataset.status === status) ? '' : 'none';
-      });
-    }
-
-    function renderDashWishlist() {
-      const container = document.getElementById('wishlist-content');
-      if (!container) return;
-      const list = typeof wishlistGet === 'function' ? wishlistGet() : [];
-      if (list.length === 0) {
-        container.innerHTML = `
-          <div style="text-align:center;padding:4rem 2rem;color:var(--text-muted);">
-            <div style="font-size:3rem;margin-bottom:1rem;">❤️</div>
-            <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-dark);margin-bottom:0.5rem;">Your wishlist is empty</h3>
-            <p style="font-size:0.88rem;margin-bottom:1.5rem;">Save your favorite fruits and they'll appear here.</p>
-            <a href="shop.html" class="btn-primary" style="font-size:0.88rem;">Browse Shop</a>
-          </div>`;
-      } else {
-        container.innerHTML = `
-          <div class="wishlist-grid">
-            ${list.map(item => `
-              <div class="wishlist-item">
-                <img src="${item.img || 'images/product_apple.webp'}" alt="${item.name}" loading="lazy" />
-                <div class="wishlist-item-body">
-                  <div class="wishlist-item-name">${item.name}</div>
-                  <div class="wishlist-item-price">$${parseFloat(item.price).toFixed(2)} / kg</div>
-                  <div style="display:flex;gap:0.5rem;margin-top:0.75rem;">
-                    <button class="btn-shop-now" onclick="cartAdd('${item.id}','${item.name}','${item.price}','${item.img || ''}');this.textContent='Added!';setTimeout(()=>this.textContent='Add to Cart',2000);" style="font-size:0.8rem;flex:1;">Add to Cart</button>
-                    <button class="btn-wishlist wishlisted" onclick="wishlistToggle('${item.id}','${item.name}','${item.price}','${item.img||''}');renderDashWishlist();" aria-label="Remove from wishlist">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                    </button>
-                  </div>
-                </div>
-              </div>`).join('')}
-          </div>`;
-      }
-    }
   </script>
 </body>
 </html>
+
+
+
+

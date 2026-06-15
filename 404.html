@@ -1,96 +1,340 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — Stackly Shop</title>
-  <meta name="description" content="Oops! The page you're looking for doesn't exist. Let's get you back to fresh produce." />
-  <link rel="stylesheet" href="css/style.css" />
+  <title>404 — Page Not Found · Stackly</title>
+  <meta name="description" content="Oops! This page doesn't exist. Head back to Stackly and continue shopping our premium collection." />
+  <link rel="icon" type="image/webp" href="images/logo-stackly.webp" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    .error-page {
+      background: var(--gradient-hero);
+    }
+
+    .error-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .error-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+    }
+
+    .error-orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(78,205,196,0.12), transparent);
+      top: -200px;
+      right: -150px;
+      animation: float-orb 10s ease-in-out infinite;
+    }
+
+    .error-orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(247,201,72,0.1), transparent);
+      bottom: -100px;
+      left: -100px;
+      animation: float-orb 8s ease-in-out infinite reverse;
+    }
+
+    .error-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(78,205,196,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78,205,196,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .floating-products {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .float-product {
+      position: absolute;
+      opacity: 0.06;
+      filter: saturate(0) brightness(2);
+      border-radius: var(--radius-md);
+    }
+
+    /* Glitch effect on 404 */
+    .glitch-text {
+      position: relative;
+      font-size: clamp(8rem, 22vw, 18rem);
+      font-weight: 900;
+      line-height: 1;
+      background: var(--gradient-teal);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.05em;
+      user-select: none;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-teal);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glitch-text::before {
+      left: 3px;
+      text-shadow: none;
+      animation: glitch-1 3s infinite linear;
+      clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+      background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+      opacity: 0.7;
+    }
+
+    .glitch-text::after {
+      left: -3px;
+      text-shadow: none;
+      animation: glitch-2 3s infinite linear;
+      clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+      background: linear-gradient(135deg, #4ECDC4, #45B7D1);
+      opacity: 0.6;
+    }
+
+    @keyframes glitch-1 {
+      0%, 90%, 100% { transform: translateX(0); opacity: 0; }
+      91% { transform: translateX(-4px); opacity: 0.7; }
+      92% { transform: translateX(4px); opacity: 0.7; }
+      93% { transform: translateX(-2px); opacity: 0.7; }
+      94% { transform: translateX(0); opacity: 0; }
+    }
+
+    @keyframes glitch-2 {
+      0%, 93%, 100% { transform: translateX(0); opacity: 0; }
+      94% { transform: translateX(4px); opacity: 0.6; }
+      95% { transform: translateX(-4px); opacity: 0.6; }
+      96% { transform: translateX(2px); opacity: 0.6; }
+      97% { transform: translateX(0); opacity: 0; }
+    }
+
+    .error-card {
+      background: rgba(17,34,54,0.8);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(78,205,196,0.15);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: var(--shadow-lg), 0 0 80px rgba(78,205,196,0.06);
+    }
+
+    .error-countdown {
+      margin: 24px 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .error-countdown span {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .suggestion-products {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .suggestion-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(78,205,196,0.08);
+      border: 1px solid rgba(78,205,196,0.15);
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      transition: var(--transition);
+      cursor: none;
+    }
+
+    .suggestion-chip:hover {
+      background: rgba(78,205,196,0.15);
+      color: var(--teal);
+      border-color: rgba(78,205,196,0.3);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
-<body style="background:var(--bg-cream);">
+<body>
 
-  <div id="page-loader" role="status" aria-label="Loading">
-    <div class="loader-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:40px;filter:brightness(10);" /></div>
-    <div class="loader-bar"></div>
-    <span class="loader-text">Loading</span>
-  </div>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
 
-  <nav class="navbar" id="main-navbar">
-    <div class="navbar-inner-wrap">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;" /></a>
-        <div class="nav-actions" style="margin-left:auto;">
-          <div class="nav-login-btn-wrap"></div>
-        </div>
+  <!-- Minimal Nav -->
+  <nav class="nav" id="nav" style="background:rgba(13,27,42,0.7); backdrop-filter:blur(20px);" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Stackly Home">
+        <img src="images/logo-stackly.webp" alt="Stackly" width="140" height="40" />
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-outline btn-sm">← Back to Home</a>
       </div>
     </div>
   </nav>
 
-  <div class="page-404">
-    <!-- Floating fruits animation -->
-    <div style="position:relative;margin-bottom:2rem;" aria-hidden="true">
-      <div style="font-size:clamp(5rem,15vw,10rem);font-family:var(--font-mono);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(45,80,22,0.12);line-height:1;user-select:none;">404</div>
-      <!-- Floating fruit decorations -->
-      <div style="position:absolute;top:-20px;left:50%;transform:translateX(-200px);animation:heroFloat 3s ease-in-out infinite;">
-        <img src="images/hero_strawberry.webp" alt="" style="width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));" />
-      </div>
-      <div style="position:absolute;top:10px;right:50%;transform:translateX(200px);animation:heroFloat 4s ease-in-out infinite 0.5s;">
-        <img src="images/product_kiwi.webp" alt="" style="width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));" />
-      </div>
-      <div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-120px);animation:heroFloat 3.5s ease-in-out infinite 1s;">
-        <img src="images/product_mango.webp" alt="" style="width:60px;height:60px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));" />
+  <div class="error-page">
+    <!-- Background effects -->
+    <div class="error-bg" aria-hidden="true">
+      <div class="error-orb error-orb-1"></div>
+      <div class="error-orb error-orb-2"></div>
+      <div class="error-grid"></div>
+      <div class="floating-products">
+        <img src="images/product_headphones.webp" alt="" class="float-product" style="width:200px; top:5%; left:5%; transform:rotate(-15deg);" />
+        <img src="images/product_sneakers.webp" alt="" class="float-product" style="width:180px; bottom:10%; right:8%; transform:rotate(12deg);" />
+        <img src="images/product_smartwatch.webp" alt="" class="float-product" style="width:140px; top:20%; right:5%; transform:rotate(-8deg);" />
+        <img src="images/product_speaker.webp" alt="" class="float-product" style="width:160px; bottom:20%; left:3%; transform:rotate(20deg);" />
       </div>
     </div>
 
-    <h1 class="error-title">Oops! Page Not Found</h1>
-    <p class="error-desc">The page you're looking for has gone missing, like a piece of fruit that disappeared from the basket. Let's get you back to the good stuff.</p>
+    <!-- Main content -->
+    <div style="position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:120px 24px 60px;">
+      <!-- Glitch 404 -->
+      <div class="glitch-text" id="error-number" aria-hidden="true">404</div>
 
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem;">
-      <a href="index.html" class="btn-green">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Back to Home
-      </a>
-      <a href="shop.html" class="btn-outline">
-        Browse Shop
-        <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
+      <div class="error-card" id="error-card">
+        <!-- Animated icon -->
+        <div style="margin-bottom:16px; animation:hero-float 4s ease-in-out infinite;"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
 
-    <!-- Quick Links -->
-    <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-xl);padding:2.5rem;max-width:600px;width:100%;text-align:left;">
-      <p style="font-family:var(--font-mono);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:1.25rem;">Quick Links</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
-        <a href="shop.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
-          <span style="font-size:1.2rem;">🛒</span> Shop Products
-        </a>
-        <a href="tracking.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
-          <span style="font-size:1.2rem;">📦</span> Track Order
-        </a>
-        <a href="about.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
-          <span style="font-size:1.2rem;">🌿</span> About Us
-        </a>
-        <a href="contact.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
-          <span style="font-size:1.2rem;">💬</span> Contact Support
-        </a>
-        <a href="login.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
-          <span style="font-size:1.2rem;">👤</span> Login
-        </a>
-        <a href="dashboard.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
-          <span style="font-size:1.2rem;">📊</span> My Dashboard
-        </a>
+        <h1 style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">Page Not Found</h1>
+        <p style="font-size:0.95rem; color:var(--text-secondary); line-height:1.7; font-family:'Inter',sans-serif; margin-bottom:8px;">
+          Looks like this page took an unexpected detour. Don't worry — our best products are just one click away.
+        </p>
+
+        <!-- Auto redirect countdown -->
+        <div class="error-countdown">
+          Redirecting to homepage in <span id="countdown">10</span> seconds
+        </div>
+
+        <!-- Action buttons -->
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:24px;">
+          <a href="index.html" class="btn btn-primary" id="home-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Go to Homepage
+          </a>
+          <a href="shop.html" class="btn btn-outline" id="shop-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:6px;"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Browse Shop
+          </a>
+        </div>
+
+        <div style="border-top:1px solid rgba(78,205,196,0.1); padding-top:24px;">
+          <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:16px; font-family:'Inter',sans-serif;">Or explore popular categories:</p>
+          <div class="suggestion-products">
+            <a href="shop.html" class="suggestion-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Electronics</a>
+            <a href="shop.html" class="suggestion-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M20.38 3.46L16 2a8 8 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg> Fashion</a>
+            <a href="shop.html" class="suggestion-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M12 3v18"/><path d="m4.93 19.07 14.14-14.14"/><path d="M21 12H3"/><path d="m19.07 19.07-14.14-14.14"/></svg> Beauty</a>
+            <a href="shop.html" class="suggestion-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Accessories</a>
+            <a href="shop.html" class="suggestion-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> On Sale</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom links -->
+      <div style="margin-top:32px; display:flex; gap:24px; flex-wrap:wrap; justify-content:center; position:relative; z-index:2;">
+        <a href="contact.html" style="font-size:0.85rem; color:var(--text-muted); transition:color 0.3s;" onmouseenter="this.style.color='var(--teal)'" onmouseleave="this.style.color='var(--text-muted)'">Need help? Contact us →</a>
+        <a href="about.html" style="font-size:0.85rem; color:var(--text-muted); transition:color 0.3s;" onmouseenter="this.style.color='var(--teal)'" onmouseleave="this.style.color='var(--text-muted)'">About Stackly →</a>
       </div>
     </div>
   </div>
 
-  <div id="toast-container" aria-live="polite"></div>
   <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
-  <style>
-    .quick-link:hover {
-      background: rgba(45,80,22,0.06) !important;
-      color: var(--primary) !important;
-      transform: translateY(-2px);
-    }
-  </style>
+  <script>
+    // GSAP animations
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined') {
+        // Glitch number entrance
+        gsap.from('#error-number', {
+          opacity: 0,
+          scale: 0.5,
+          duration: 1,
+          ease: 'back.out(1.5)',
+          delay: 0.2
+        });
+
+        // Card entrance
+        gsap.from('#error-card', {
+          opacity: 0,
+          y: 60,
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: 0.5
+        });
+
+        // Float background products
+        const floatProducts = document.querySelectorAll('.float-product');
+        floatProducts.forEach((el, i) => {
+          gsap.to(el, {
+            y: (i % 2 === 0) ? -30 : 30,
+            x: (i % 2 === 0) ? 10 : -10,
+            rotation: `+=${(i % 2 === 0) ? 5 : -5}`,
+            duration: 4 + i,
+            ease: 'sine.inOut',
+            yoyo: true,
+            repeat: -1
+          });
+        });
+
+        // Pulse on buttons
+        gsap.to('#home-btn', {
+          boxShadow: '0 12px 40px rgba(78,205,196,0.5)',
+          duration: 1.5,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1
+        });
+      }
+
+      // Countdown and redirect
+      let count = 10;
+      const countEl = document.getElementById('countdown');
+      const timer = setInterval(() => {
+        count--;
+        if (countEl) countEl.textContent = count;
+        if (count <= 0) {
+          clearInterval(timer);
+          window.location.href = 'index.html';
+        }
+      }, 1000);
+
+      // Cancel redirect on any interaction
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', () => clearInterval(timer));
+      });
+    });
+  </script>
 </body>
 </html>
+
+
+
+
+
+
