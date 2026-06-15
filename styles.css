@@ -3409,3 +3409,28 @@ h1, h2, h3, h4, h5, h6 {
 .password-toggle:hover {
   color: var(--teal);
 }
+/* Fix Product Card Alignment */
+.product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+.product-card-info {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 !important;
+}
+
+.product-name {
+  min-height: 2.8em !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.product-price-row {
+  margin-top: auto !important;
+}
+
