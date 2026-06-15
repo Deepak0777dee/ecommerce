@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Stackly Fresh Produce</title>
+  <meta name="description" content="Browse 50+ premium fresh fruits and produce. Filter by category, search, and add to cart. Pesticide-free, farm-fresh quality." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:40px;width:auto;filter:brightness(10);" /></div>
+    <div class="loader-bar"></div>
+    <span class="loader-text">Loading Shop</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="main-navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner-wrap">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly Shop" style="height:30px;width:auto;" /></a>
+        <ul class="nav-menu" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html" class="active">Shop</a></li>
+          <li><a href="tracking.html">Track Order</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="nav-icon-btn cart-icon open-cart-btn" aria-label="Cart" id="cart-nav-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nav-cart-badge" style="display:none;">0</span>
+          </button>
+          <div class="nav-login-btn-wrap"></div>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" role="dialog" aria-modal="true">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;" /></a>
+        <button class="mobile-menu-close">&times;</button>
+      </div>
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="tracking.html">Track Order</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-login-wrap"></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Shop Hero Banner -->
+    <div style="background:var(--primary);padding:4rem 1.5rem 3rem;text-align:center;">
+      <div class="container">
+        <span class="section-tag" style="color:var(--accent-green);background:rgba(168,204,60,0.1);border-color:rgba(168,204,60,0.2);margin-bottom:1rem;"><span class="section-tag-dot"></span> Fresh Catalog</span>
+        <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;margin-bottom:0.75rem;">All Fresh Products</h1>
+        <p style="color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto;">50+ varieties of farm-fresh fruits, handpicked daily and delivered to your door.</p>
+      </div>
+    </div>
+
+    <section class="section" id="categories" aria-labelledby="shop-heading">
+      <div class="container">
+        <h2 class="section-h2" id="shop-heading" style="display:none;">Shop All Products</h2>
+
+        <!-- Controls -->
+        <div class="shop-controls">
+          <div class="shop-filters" role="group" aria-label="Product filters">
+            <button class="filter-btn active" data-filter="all" id="filter-all">All</button>
+            <button class="filter-btn" data-filter="citrus" id="filter-citrus">🍊 Citrus</button>
+            <button class="filter-btn" data-filter="tropical" id="filter-tropical">🥭 Tropical</button>
+            <button class="filter-btn" data-filter="berries" id="filter-berries">🍓 Berries</button>
+            <button class="filter-btn" data-filter="local" id="filter-local">🌿 Local</button>
+            <button class="filter-btn" data-filter="imported" id="filter-imported">✈️ Imported</button>
+          </div>
+          <div class="shop-search-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text-muted);flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" class="shop-search" id="shop-search" placeholder="Search products…" aria-label="Search products" />
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" role="list" aria-label="Product catalog">
+
+          <article class="product-card" data-category="citrus" role="listitem" data-anim="fade-up" data-delay="50">
+            <div class="product-card-header">
+              <span class="product-cat-label">Citrus</span>
+              <span class="product-badge popular">Popular</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/hero_orange.webp" alt="Premium Navel Orange" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Premium Navel Orange</div>
+              <div class="product-price">$4.20 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(324)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Vitamin C</span>
+                <span class="product-tag">Juicy</span>
+                <span class="product-tag">Seedless</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="orange-1" data-name="Premium Navel Orange" data-price="4.20" data-img="images/hero_orange.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="orange-1" data-name="Premium Navel Orange" data-price="4.20" data-img="images/hero_orange.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="tropical" role="listitem" data-anim="fade-up" data-delay="100">
+            <div class="product-card-header">
+              <span class="product-cat-label">Tropical</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_mango.webp" alt="Harum Manis Mango" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Harum Manis Mango</div>
+              <div class="product-price">$3.50 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(289)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Antioxidant</span>
+                <span class="product-tag">Sweet</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="mango-1" data-name="Harum Manis Mango" data-price="3.50" data-img="images/product_mango.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="mango-1" data-name="Harum Manis Mango" data-price="3.50" data-img="images/product_mango.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="imported" role="listitem" data-anim="fade-up" data-delay="150">
+            <div class="product-card-header">
+              <span class="product-cat-label">Imported</span>
+              <span class="product-badge popular">Popular</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_grapes.webp" alt="Muscat Grapes" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Muscat Grapes</div>
+              <div class="product-price">$8.50 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(412)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Seedless</span>
+                <span class="product-tag">Crispy</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="grapes-1" data-name="Muscat Grapes" data-price="8.50" data-img="images/product_grapes.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="grapes-1" data-name="Muscat Grapes" data-price="8.50" data-img="images/product_grapes.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="local" role="listitem" data-anim="fade-up" data-delay="200">
+            <div class="product-card-header">
+              <span class="product-cat-label">Local</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_banana.webp" alt="Sweet Banana" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Sweet Banana</div>
+              <div class="product-price">$3.50 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★☆</span>
+                <span class="product-rating-count">(198)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Electrolytes</span>
+                <span class="product-tag">Energy</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="banana-1" data-name="Sweet Banana" data-price="3.50" data-img="images/product_banana.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="banana-1" data-name="Sweet Banana" data-price="3.50" data-img="images/product_banana.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="local" role="listitem" data-anim="fade-up" data-delay="250">
+            <div class="product-card-header">
+              <span class="product-cat-label">Local</span>
+              <span class="product-badge new">New</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_apple.webp" alt="Premium Red Apple" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Premium Red Apple</div>
+              <div class="product-price">$4.50 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(356)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Pesticide-free</span>
+                <span class="product-tag">Crunchy</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="apple-1" data-name="Premium Red Apple" data-price="4.50" data-img="images/product_apple.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="apple-1" data-name="Premium Red Apple" data-price="4.50" data-img="images/product_apple.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="imported" role="listitem" data-anim="fade-up" data-delay="300">
+            <div class="product-card-header">
+              <span class="product-cat-label">Imported</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_kiwi.webp" alt="Imported Green Kiwi" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Imported Green Kiwi</div>
+              <div class="product-price">$6.00 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(277)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">High Vit-C</span>
+                <span class="product-tag">Fiber</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="kiwi-1" data-name="Imported Green Kiwi" data-price="6.00" data-img="images/product_kiwi.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="kiwi-1" data-name="Imported Green Kiwi" data-price="6.00" data-img="images/product_kiwi.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="tropical" role="listitem" data-anim="fade-up" data-delay="350">
+            <div class="product-card-header">
+              <span class="product-cat-label">Tropical</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_papaya.webp" alt="California Papaya" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">California Papaya</div>
+              <div class="product-price">$5.50 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★☆</span>
+                <span class="product-rating-count">(143)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Papain</span>
+                <span class="product-tag">Digestive</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="papaya-1" data-name="California Papaya" data-price="5.50" data-img="images/product_papaya.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="papaya-1" data-name="California Papaya" data-price="5.50" data-img="images/product_papaya.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="local" role="listitem" data-anim="fade-up" data-delay="400">
+            <div class="product-card-header">
+              <span class="product-cat-label">Local</span>
+              <span class="product-badge popular">Popular</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_watermelon.webp" alt="Sweet Watermelon" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Sweet Watermelon</div>
+              <div class="product-price">$2.80 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(521)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Hydrating</span>
+                <span class="product-tag">Low Cal</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="watermelon-1" data-name="Sweet Watermelon" data-price="2.80" data-img="images/product_watermelon.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="watermelon-1" data-name="Sweet Watermelon" data-price="2.80" data-img="images/product_watermelon.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="tropical" role="listitem" data-anim="fade-up" data-delay="450">
+            <div class="product-card-header">
+              <span class="product-cat-label">Tropical</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_guava.webp" alt="Pink Guava" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Pink Guava</div>
+              <div class="product-price">$3.90 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★☆</span>
+                <span class="product-rating-count">(167)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Vitamin C</span>
+                <span class="product-tag">Antioxidant</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="guava-1" data-name="Pink Guava" data-price="3.90" data-img="images/product_guava.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="guava-1" data-name="Pink Guava" data-price="3.90" data-img="images/product_guava.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="berries" role="listitem" data-anim="fade-up" data-delay="500">
+            <div class="product-card-header">
+              <span class="product-cat-label">Berries</span>
+              <span class="product-badge new">New</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/hero_strawberry.webp" alt="Fresh Strawberries" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Fresh Strawberries</div>
+              <div class="product-price">$9.00 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(433)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Antioxidant</span>
+                <span class="product-tag">Premium</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="strawberry-1" data-name="Fresh Strawberries" data-price="9.00" data-img="images/hero_strawberry.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="strawberry-1" data-name="Fresh Strawberries" data-price="9.00" data-img="images/hero_strawberry.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="citrus" role="listitem" data-anim="fade-up" data-delay="550">
+            <div class="product-card-header">
+              <span class="product-cat-label">Citrus</span>
+            </div>
+            <div class="product-img-wrap" style="background:#fffbf0;">
+              <img src="images/product_banana.webp" alt="Meyer Lemon" loading="lazy" style="filter:hue-rotate(20deg) saturate(1.5);" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Meyer Lemon</div>
+              <div class="product-price">$5.20 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★☆</span>
+                <span class="product-rating-count">(201)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Zesty</span>
+                <span class="product-tag">Vitamin C</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="lemon-1" data-name="Meyer Lemon" data-price="5.20" data-img="images/product_banana.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="lemon-1" data-name="Meyer Lemon" data-price="5.20" data-img="images/product_banana.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="berries" role="listitem" data-anim="fade-up" data-delay="600">
+            <div class="product-card-header">
+              <span class="product-cat-label">Berries</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_grapes.webp" alt="Black Grapes" loading="lazy" style="filter:hue-rotate(280deg) saturate(0.7);" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Black Grapes</div>
+              <div class="product-price">$7.80 <span>/kg</span></div>
+              <div class="product-rating">
+                <span class="product-stars">★★★★★</span>
+                <span class="product-rating-count">(318)</span>
+              </div>
+              <div class="product-tags">
+                <span class="product-tag">Resveratrol</span>
+                <span class="product-tag">Heart Health</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn-add-cart" data-id="blackgrapes-1" data-name="Black Grapes" data-price="7.80" data-img="images/product_grapes.webp">Add to Cart</button>
+                <button class="btn-wishlist" data-id="blackgrapes-1" data-name="Black Grapes" data-price="7.80" data-img="images/product_grapes.webp" aria-label="Save to wishlist">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background:var(--bg-hero);color:rgba(255,255,255,0.7);padding:2.5rem 0;text-align:center;">
+    <div class="container">
+      <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;filter:brightness(10);margin:0 auto 1rem;" /></a>
+      <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:0.85rem;margin-bottom:1rem;">
+        <a href="index.html" style="color:rgba(255,255,255,0.6);">Home</a>
+        <a href="shop.html" style="color:rgba(255,255,255,0.6);">Shop</a>
+        <a href="about.html" style="color:rgba(255,255,255,0.6);">About</a>
+        <a href="contact.html" style="color:rgba(255,255,255,0.6);">Contact</a>
+        <a href="tracking.html" style="color:rgba(255,255,255,0.6);">Track Order</a>
+      </div>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.3);">© 2026 Stackly Shop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+    <div class="cart-header">
+      <span class="cart-title">Shopping Cart</span>
+      <button class="cart-close" id="cart-close">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span class="cart-total-price" id="cart-total-val">$0.00</span></div>
+      <button class="btn-primary" id="cart-checkout-btn" style="width:100%;justify-content:center;">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <div id="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

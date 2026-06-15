@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stackly Shop — Fresh. Local. Delivered.</title>
+  <meta name="description" content="Premium fresh fruits and produce delivered to your door. Pesticide-free, farm-fresh, handpicked daily. Shop now and taste the difference." />
+  <link rel="canonical" href="https://stacklyshop.com/" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-logo">
+      <img src="images/logo-stackly.webp" alt="Stackly Shop" style="height:40px;width:auto;filter:brightness(10);" />
+    </div>
+    <div class="loader-bar"></div>
+    <span class="loader-text">Loading Experience</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar hero-mode" id="main-navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner-wrap">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Stackly Shop Home">
+          <img src="images/logo-stackly.webp" alt="Stackly Shop" style="height:30px;width:auto;filter:brightness(10);" id="nav-logo-img" />
+        </a>
+        <ul class="nav-menu" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="tracking.html">Track Order</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="nav-icon-btn cart-icon open-cart-btn" aria-label="Shopping cart" id="cart-nav-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nav-cart-badge" style="display:none;">0</span>
+          </button>
+          <button class="nav-icon-btn" aria-label="Wishlist">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </button>
+          <div class="nav-login-btn-wrap"></div>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;width:auto;" /></a>
+        <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="tracking.html">Track Order</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-login-wrap"></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ════ HERO SECTION ════ -->
+    <section class="hero" aria-label="Hero" id="hero">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-watermark" aria-hidden="true">freshness</div>
+
+      <div class="hero-layout">
+        <!-- Left -->
+        <div class="hero-left">
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            Fresh fruits • 2026
+          </div>
+          <p class="hero-title">
+            Enjoy the freshness of the best fruits picked straight from the source, delivered to your door every day.
+          </p>
+          <div class="hero-ctas">
+            <a href="shop.html" class="btn-primary" id="hero-shop-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              Shop Now
+            </a>
+            <a href="shop.html#categories" class="btn-secondary" id="hero-all-btn">
+              See All
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center: floating product -->
+        <div class="hero-center">
+          <img src="images/hero_orange.webp" alt="Fresh premium orange" class="hero-product-img" />
+        </div>
+
+        <!-- Right: stat widget -->
+        <div class="hero-right">
+          <div style="background:rgba(255,255,255,0.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:1.5rem;width:220px;">
+            <div style="font-family:var(--font-mono);font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Customer Reviews</div>
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+              <span style="font-family:var(--font-mono);font-size:2.5rem;font-weight:900;color:#fff;line-height:1;">4.9</span>
+              <span style="color:var(--accent);font-size:1.5rem;">★</span>
+            </div>
+            <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;">Based on 12,000+ happy customers across the globe.</div>
+            <div style="margin-top:1rem;display:flex;gap:-8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#f97316,#fbbf24);border:2px solid rgba(255,255,255,0.2);"></div>
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#22c55e,#86efac);border:2px solid rgba(255,255,255,0.2);margin-left:-8px;"></div>
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#93c5fd);border:2px solid rgba(255,255,255,0.2);margin-left:-8px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <div class="hero-scroll-track">
+          <div class="hero-scroll-thumb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ MARQUEE / TICKER ════ -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-item"><span class="marquee-item-icon">🍊</span> Pesticide-Free Guarantee</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🚚</span> Next-Day Nationwide Delivery</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🌱</span> Farm-Direct Sourcing</div>
+        <div class="marquee-item"><span class="marquee-item-icon">⭐</span> 4.9/5 Customer Rating</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🍓</span> 50+ Premium Varieties</div>
+        <div class="marquee-item"><span class="marquee-item-icon">♻️</span> Eco-Friendly Packaging</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🍊</span> Pesticide-Free Guarantee</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🚚</span> Next-Day Nationwide Delivery</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🌱</span> Farm-Direct Sourcing</div>
+        <div class="marquee-item"><span class="marquee-item-icon">⭐</span> 4.9/5 Customer Rating</div>
+        <div class="marquee-item"><span class="marquee-item-icon">🍓</span> 50+ Premium Varieties</div>
+        <div class="marquee-item"><span class="marquee-item-icon">♻️</span> Eco-Friendly Packaging</div>
+      </div>
+    </div>
+
+    <!-- ════ VALUE STRIP ════ -->
+    <div class="value-strip">
+      <div class="container">
+        <div class="value-strip-inner">
+          <div class="value-props">
+            <div class="value-prop">
+              <div class="value-prop-icon">🍊</div>
+              Nationwide delivery coverage
+            </div>
+            <div class="value-prop">
+              <div class="value-prop-icon">📦</div>
+              Real-time order tracking
+            </div>
+            <div class="value-prop">
+              <div class="value-prop-icon">🌿</div>
+              100% organic certified
+            </div>
+          </div>
+          <div class="value-strip-ctas">
+            <a href="tracking.html" class="btn-outline">
+              Track Order
+              <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="shop.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.88rem;">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════ EDITORIAL HEADLINE + FEATURED PRODUCTS ════ -->
+    <section class="section" style="background:var(--bg-cream);" aria-labelledby="featured-heading">
+      <div class="container">
+        <!-- Editorial tag -->
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:2rem;">
+          <span class="section-tag"><span class="section-tag-dot"></span> Fresh fruits</span>
+        </div>
+        <!-- Big editorial headline -->
+        <div class="editorial-headline" id="featured-heading">
+          Modern Body
+          <img src="images/hero_strawberry.webp" alt="" class="editorial-img-inline" aria-hidden="true" />
+          Immune Formulation
+        </div>
+        <div style="margin-bottom:1rem;">
+          <span style="font-family:var(--font-mono);font-size:0.82rem;font-weight:600;color:var(--text-muted);">Sweet strawberries</span><br/>
+          <span style="font-size:0.78rem;color:var(--text-muted);">Handpicked from the finest orchards</span>
+        </div>
+
+        <!-- FRESH watermark overlay -->
+        <div style="position:relative;text-align:center;margin:1.5rem 0;">
+          <span style="font-family:var(--font-mono);font-size:clamp(3rem,10vw,7rem);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(45,80,22,0.1);letter-spacing:-0.04em;user-select:none;" aria-hidden="true">FRESH</span>
+        </div>
+
+        <!-- 3-col product cards -->
+        <div class="products-grid" aria-label="Featured products">
+          <!-- Mango -->
+          <article class="product-card" data-category="tropical" data-anim="fade-up" data-delay="100">
+            <div class="product-card-header">
+              <span class="product-cat-label">Imported Fruit</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_mango.webp" alt="Harum Manis Mango" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Harum Manis Mango</div>
+              <div class="product-price">$3.50 <span>/kg</span></div>
+              <div class="product-desc">Exceptionally sweet with thick flesh and a rich aroma. Harvested at peak ripeness from East Java orchard.</div>
+              <div class="product-tags">
+                <span class="product-tag">Vitamin C</span>
+                <span class="product-tag">Antioxidant</span>
+                <span class="product-tag">High Fiber</span>
+              </div>
+              <div class="product-actions">
+                <a href="shop.html" class="btn-shop-now">
+                  Shop Now
+                  <svg class="btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <button class="btn-add-cart" data-id="mango-1" data-name="Harum Manis Mango" data-price="3.50" data-img="images/product_mango.webp" aria-label="Add to cart">
+                  Add to Cart
+                  <svg class="btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Grapes -->
+          <article class="product-card" data-category="imported" data-anim="fade-up" data-delay="200">
+            <div class="product-card-header">
+              <span class="product-cat-label">Imported Fruit</span>
+              <span class="product-badge popular">Popular</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_grapes.webp" alt="Muscat Grapes" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Muscat Grapes</div>
+              <div class="product-price">$8.50 <span>/kg</span></div>
+              <div class="product-desc">Crispy green grapes with a candy-like sweetness. Seedless and perfect as a healthy snack.</div>
+              <div class="product-tags">
+                <span class="product-tag">Resveratrol</span>
+                <span class="product-tag">Seedless</span>
+                <span class="product-tag">Crispy</span>
+              </div>
+              <div class="product-actions">
+                <a href="shop.html" class="btn-shop-now">
+                  Shop Now
+                  <svg class="btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <button class="btn-add-cart" data-id="grapes-1" data-name="Muscat Grapes" data-price="8.50" data-img="images/product_grapes.webp" aria-label="Add to cart">
+                  Add to Cart
+                  <svg class="btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Banana -->
+          <article class="product-card" data-category="local" data-anim="fade-up" data-delay="300">
+            <div class="product-card-header">
+              <span class="product-cat-label">Local Fruit</span>
+              <span class="product-badge popular">Popular</span>
+            </div>
+            <div class="product-img-wrap">
+              <img src="images/product_banana.webp" alt="Sweet Banana" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Sweet Banana</div>
+              <div class="product-price">$3.50 <span>/kg</span></div>
+              <div class="product-desc">Deep red flesh with a satisfying crunch and intense sweetness. Best enjoyed chilled on a hot day.</div>
+              <div class="product-tags">
+                <span class="product-tag">Vitamin C</span>
+                <span class="product-tag">Electrolytes</span>
+                <span class="product-tag">High Fiber</span>
+              </div>
+              <div class="product-actions">
+                <a href="shop.html" class="btn-shop-now">
+                  Shop Now
+                  <svg class="btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <button class="btn-add-cart" data-id="banana-1" data-name="Sweet Banana" data-price="3.50" data-img="images/product_banana.webp" aria-label="Add to cart">
+                  Add to Cart
+                  <svg class="btn-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ TESTIMONIALS ════ -->
+    <section class="section" style="background:var(--bg-cream-dark);" aria-labelledby="testi-heading">
+      <div class="container">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+          <span class="section-tag"><span class="section-tag-dot"></span> Fresh fruits</span>
+        </div>
+        <div class="editorial-headline" id="testi-heading" style="font-size:clamp(1.5rem,4vw,2.8rem);margin-bottom:2.5rem;">
+          Picked fres
+          <span class="editorial-pill">🍊🍋🍇 Fresh fruits for a healthy life</span>
+          juicy<br />taste the real freshness
+        </div>
+
+        <div class="testimonials-grid" data-anim="fade-up">
+          <div class="testimonials-left">
+            <div class="testi-header-tag">
+              <div class="testi-dot"></div>
+              What they say about us
+            </div>
+            <div class="testi-tabs" role="tablist">
+              <button class="testi-tab active" role="tab" aria-selected="true">Family</button>
+              <button class="testi-tab" role="tab" aria-selected="false">Health</button>
+              <button class="testi-tab" role="tab" aria-selected="false">Price</button>
+              <button class="testi-tab" role="tab" aria-selected="false">Quality</button>
+            </div>
+            <blockquote class="testi-quote" id="testi-quote" style="transition:opacity 0.2s;">
+              "I only had a small basket of vegetables. Now I have a thriving family business thanks to the quality produce from Stackly."
+            </blockquote>
+            <div class="testi-author-row">
+              <img src="images/review_person.webp" alt="Reviewer" class="testi-author-img" loading="lazy" />
+              <div>
+                <div class="testi-author-name" id="testi-name">Sarah M.</div>
+                <div class="testi-author-role" id="testi-role">Loyal Customer · 2 years</div>
+              </div>
+            </div>
+            <div class="testi-arrows">
+              <button class="testi-arrow" id="testi-prev" aria-label="Previous testimonial">‹</button>
+              <button class="testi-arrow active" id="testi-next" aria-label="Next testimonial">›</button>
+            </div>
+          </div>
+
+          <div class="testimonials-right">
+            <img src="images/review_lifestyle.webp" alt="Happy customer with fresh fruits" loading="lazy" />
+            <div class="testi-floating-card">
+              <div class="testi-card-header">
+                <div class="testi-card-brand">🍊 Stackly</div>
+                <span class="testi-card-year">• 2026</span>
+              </div>
+              <div class="testi-card-title">Loyal Customer Program</div>
+              <div class="testi-card-desc">Earn reward points with every purchase and enjoy special discounts for our loyal members.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ EDITORIAL CTA SECTION ════ -->
+    <section class="section" style="background:var(--bg-cream);" aria-labelledby="ordinary-heading">
+      <div class="container">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+          <span class="section-tag"><span class="section-tag-dot"></span> Ordinary Fruit</span>
+        </div>
+        <div class="editorial-headline" id="ordinary-heading" style="margin-bottom:2.5rem;">
+          Not your
+          <span class="editorial-pill">🥝🍋🍇 Fresh fruits for a healthy life</span>
+          ordinary fruit<br/>this is something special
+        </div>
+
+        <!-- Full-width lifestyle image -->
+        <div style="border-radius:var(--border-radius-xl);overflow:hidden;margin-bottom:1.5rem;" data-anim="scale-up">
+          <img src="images/review_person.webp" alt="Person holding fresh guava fruits" loading="lazy" style="width:100%;height:380px;object-fit:cover;" />
+        </div>
+
+        <!-- Category pills row -->
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+            <span style="font-weight:700;font-size:0.9rem;color:var(--text-dark);">Gummies Health</span>
+            <a href="shop.html" style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);border:1px solid var(--border-light);padding:0.3rem 0.8rem;border-radius:99px;">🧺 Gift Basket</a>
+            <a href="shop.html" style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);border:1px solid var(--border-light);padding:0.3rem 0.8rem;border-radius:99px;">🍏 Organic</a>
+            <a href="shop.html" style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);border:1px solid var(--border-light);padding:0.3rem 0.8rem;border-radius:99px;">🍊 Citrus</a>
+            <a href="shop.html" style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);border:1px solid var(--border-light);padding:0.3rem 0.8rem;border-radius:99px;">🍇 Tropical</a>
+          </div>
+          <a href="shop.html" style="color:var(--primary);font-weight:700;font-size:1.2rem;">↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ OUR PROMISE — BENTO PRODUCTS ════ -->
+    <section class="section" style="background:var(--bg-cream-dark);" aria-labelledby="promise-heading">
+      <div class="container">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
+          <span class="section-tag"><span class="section-tag-dot"></span> Our Promise</span>
+        </div>
+        <div class="editorial-headline" id="promise-heading" style="margin-bottom:1rem;">
+          Not just
+          <span class="editorial-pill">🥝🍋🍇 Fresh fruits for a healthy life</span>
+          ordinary fruit<br/>this is extraordinary
+        </div>
+
+        <!-- Value props row -->
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
+          <div class="value-props">
+            <div class="value-prop"><div class="value-prop-icon">🍊</div> Nationwide delivery coverage</div>
+            <div class="value-prop"><div class="value-prop-icon">📦</div> Real-time order tracking</div>
+          </div>
+          <div style="display:flex;gap:0.75rem;">
+            <a href="tracking.html" class="btn-outline">Track Order ↗</a>
+            <a href="shop.html" class="btn-primary" style="padding:0.65rem 1.5rem;font-size:0.88rem;">Shop Now ↗</a>
+          </div>
+        </div>
+
+        <!-- 3 bento product cards -->
+        <div class="products-grid">
+          <!-- Apple -->
+          <article class="product-card" data-category="local" data-anim="fade-up" data-delay="100">
+            <div class="product-card-header">
+              <span class="product-cat-label">🍎🍋 Product 01</span>
+              <a href="shop.html" style="color:var(--text-muted);font-size:1rem;">↗</a>
+            </div>
+            <div class="product-card-body" style="padding-top:0;">
+              <div class="product-name">Premium Red Apple</div>
+              <div class="product-desc">Crisp, sweet red apples handpicked from the finest orchards. Rich in antioxidants and natural sweetness.</div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-muted);margin-bottom:0.75rem;">
+                <span>Pesticide-free</span><span>Freshly harvested</span>
+              </div>
+            </div>
+            <div class="product-img-wrap" style="background:var(--bg-cream-dark);">
+              <img src="images/product_apple.webp" alt="Premium Red Apple" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-price">$4.50 <span>/kg</span></div>
+              <div class="product-actions">
+                <a href="shop.html" class="btn-shop-now">Shop Now ↗</a>
+                <button class="btn-add-cart" data-id="apple-1" data-name="Premium Red Apple" data-price="4.50" data-img="images/product_apple.webp">Add to Cart ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Kiwi -->
+          <article class="product-card" data-category="imported" data-anim="fade-up" data-delay="200">
+            <div class="product-card-header">
+              <span class="product-cat-label">🍎🍋 Product 02</span>
+              <a href="shop.html" style="color:var(--text-muted);font-size:1rem;">↗</a>
+            </div>
+            <div class="product-img-wrap" style="background:var(--bg-cream-dark);">
+              <img src="images/product_kiwi.webp" alt="Imported Green Kiwi" loading="lazy" />
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:0 1.25rem;font-size:0.75rem;color:var(--text-muted);margin-bottom:0.25rem;">
+              <span>Fresh Kiwi</span><span>High in Vitamin</span>
+            </div>
+            <div class="product-card-body">
+              <div class="product-name">Imported Green Kiwi</div>
+              <div class="product-price">$6.00 <span>/kg</span></div>
+              <div class="product-desc">Refreshingly tangy-sweet kiwi bursting with Vitamin C. Perfect for smoothies, salads, or a guilt-free snack.</div>
+              <div class="product-actions">
+                <a href="shop.html" class="btn-shop-now">Shop Now ↗</a>
+                <button class="btn-add-cart" data-id="kiwi-1" data-name="Imported Green Kiwi" data-price="6.00" data-img="images/product_kiwi.webp">Add to Cart ↗</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Papaya -->
+          <article class="product-card" data-category="tropical" data-anim="fade-up" data-delay="300">
+            <div class="product-card-header">
+              <span class="product-cat-label">🍎🍋 Product 03</span>
+              <a href="shop.html" style="color:var(--text-muted);font-size:1rem;">↗</a>
+            </div>
+            <div class="product-card-body" style="padding-top:0;padding-bottom:0;">
+              <div class="product-name" style="margin-top:0.75rem;">Ripe California Papaya</div>
+              <div class="product-desc">Buttery-soft California papaya harvested at peak ripeness. Loaded with papain enzymes.</div>
+              <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">
+                <span>Naturally sweet</span><span>No preservatives</span>
+              </div>
+            </div>
+            <div class="product-img-wrap" style="background:var(--bg-cream-dark);">
+              <img src="images/product_papaya.webp" alt="Ripe California Papaya" loading="lazy" />
+            </div>
+            <div class="product-card-body">
+              <div class="product-price">$5.50 <span>/kg</span></div>
+              <div class="product-actions">
+                <a href="shop.html" class="btn-shop-now">Shop Now ↗</a>
+                <button class="btn-add-cart" data-id="papaya-1" data-name="Ripe California Papaya" data-price="5.50" data-img="images/product_papaya.webp">Add to Cart ↗</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ WHY CHOOSE US FEATURES ════ -->
+    <section class="section" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><span class="section-tag-dot"></span> Why Stackly</span>
+          <h2 class="section-h2" id="why-heading">Freshness Built Around You</h2>
+          <p class="section-p">Every piece of fruit handled with care, every delivery backed by our commitment to excellence and taste.</p>
+        </div>
+        <div class="bento-grid">
+          <div class="feature-item bento-large" data-anim="fade-up" data-delay="100">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Farm-to-Door Tracking</h3>
+            <p>GPS-monitored freshness chain from our partner farms all the way to your doorstep. Know exactly where your produce is at every step.</p>
+          </div>
+          <div class="feature-item bento-small" data-anim="fade-up" data-delay="200">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Pesticide-Free</h3>
+            <p>100% certified organic. No chemicals, ever.</p>
+          </div>
+          <div class="feature-item bento-small" data-anim="fade-up" data-delay="300">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Freshness Guarantee</h3>
+            <p>Not fresh? We refund or replace — no questions asked.</p>
+          </div>
+          <div class="feature-item bento-small" data-anim="fade-up" data-delay="400">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Same-Day Delivery</h3>
+            <p>Order before 10 AM and get it by dinner time in metro areas.</p>
+          </div>
+          <div class="feature-item bento-small" data-anim="fade-up" data-delay="500">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <h3>Reward Points</h3>
+            <p>Earn points on every purchase. Redeem for free produce.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ STATS ════ -->
+    <section class="section" style="background:var(--primary);" aria-labelledby="stats-heading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-h2" id="stats-heading" style="color:#fff;">By the Numbers</h2>
+          <p class="section-p" style="color:rgba(255,255,255,0.6);">Scale that speaks for itself.</p>
+        </div>
+        <div class="facts-grid">
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="100">
+            <span class="fact-num" data-target="50000" data-suffix="+" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.7);">Happy Customers</div>
+          </div>
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="200">
+            <span class="fact-num" data-target="50" data-suffix="+" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.7);">Fruit Varieties</div>
+          </div>
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="300">
+            <span class="fact-num" data-target="200" data-suffix="+" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.7);">Farm Partners</div>
+          </div>
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="400">
+            <span class="fact-num" data-target="99" data-suffix="%" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.7);">Satisfaction Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ HOW IT WORKS ════ -->
+    <section class="section" aria-labelledby="hiw-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><span class="section-tag-dot"></span> Simple Process</span>
+          <h2 class="section-h2" id="hiw-heading">How It Works</h2>
+          <p class="section-p">From farm to your table in 4 simple steps.</p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card" data-anim="fade-up" data-delay="100">
+            <div class="step-num">1</div>
+            <h3>Browse & Select</h3>
+            <p>Explore our catalog of 50+ fresh varieties. Filter by category or search for your favorites.</p>
+          </div>
+          <div class="step-card" data-anim="fade-up" data-delay="200">
+            <div class="step-num">2</div>
+            <h3>Place Your Order</h3>
+            <p>Secure checkout with multiple payment options. Your order is confirmed instantly.</p>
+          </div>
+          <div class="step-card" data-anim="fade-up" data-delay="300">
+            <div class="step-num">3</div>
+            <h3>We Pick & Pack</h3>
+            <p>Our team handpicks each fruit at peak ripeness and packs it carefully for delivery.</p>
+          </div>
+          <div class="step-card" data-anim="fade-up" data-delay="400">
+            <div class="step-num">4</div>
+            <h3>Fresh Delivery</h3>
+            <p>Delivered to your door in eco-friendly packaging. Guaranteed fresh or your money back.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ METEOR CTA SECTION ════ -->
+    <section class="section meteor-section" aria-labelledby="meteor-heading">
+      <div id="meteors-layer" aria-hidden="true"></div>
+      <div class="meteor-container">
+        <div class="container">
+          <span class="section-tag" style="color:var(--accent-green);background:rgba(168,204,60,0.1);border-color:rgba(168,204,60,0.2);">
+            <span class="section-tag-dot"></span> Beyond Ordinary
+          </span>
+          <h2 class="section-h2" id="meteor-heading" style="color:#fff;margin-top:1rem;">Fresh Produce at the Speed of Light.</h2>
+          <p class="section-p" style="color:rgba(255,255,255,0.5);">Experience zero compromise on freshness. Our temperature-controlled supply chain ensures your produce arrives as if picked moments ago.</p>
+          <a href="shop.html" class="btn-primary" style="margin-top:2rem;">
+            Shop All Products
+            <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ FAQ ════ -->
+    <section class="section" style="background:var(--bg-cream-dark);" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><span class="section-tag-dot"></span> Got Questions?</span>
+          <h2 class="section-h2" id="faq-heading">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">How fresh are your products? <span class="faq-toggle" aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>All our products are harvested within 24–48 hours of delivery. We work directly with farms to ensure maximum freshness. Our cold-chain logistics maintain optimal temperature throughout transit.</p></div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">What's your delivery coverage? <span class="faq-toggle" aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>We currently deliver to 200+ cities nationwide. Same-day delivery is available in major metro areas for orders placed before 10 AM. Next-day delivery is available everywhere else.</p></div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">What if my produce isn't fresh? <span class="faq-toggle" aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>We offer a 100% Freshness Guarantee. If you're not satisfied with the quality of any product, we'll replace it free or issue a full refund — no questions asked, within 24 hours of delivery.</p></div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">How do I track my order? <span class="faq-toggle" aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Once your order is confirmed, you'll receive a unique Order ID via email. Use our <a href="tracking.html" style="color:var(--primary);font-weight:600;">Track Order</a> page to view real-time delivery status and estimated arrival time.</p></div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">Are there subscription plans? <span class="faq-toggle" aria-hidden="true">+</span></button>
+            <div class="faq-answer"><p>Yes! Our Weekly Fruit Box subscription delivers a curated selection of 6–8 seasonal fruits every week. Subscribers get 15% off all orders and priority delivery slots.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════ NEWSLETTER ════ -->
+    <section class="section" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="newsletter-section">
+          <span class="section-tag"><span class="section-tag-dot"></span> Stay Fresh</span>
+          <h2 class="section-h2" id="newsletter-heading">Get Weekly Fresh Picks</h2>
+          <p class="section-p">Subscribe for seasonal highlights, exclusive offers, and healthy recipes from our nutrition team.</p>
+          <div class="newsletter-input-wrap">
+            <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Enter your email address" aria-label="Email for newsletter" autocomplete="email" />
+            <button class="newsletter-btn" id="newsletter-btn">Subscribe</button>
+          </div>
+          <p class="newsletter-note">No spam, ever. Unsubscribe at any time.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ════ FOOTER CONTACT STRIP ════ -->
+  <div class="footer-contact-strip">
+    <div class="container">
+      <div class="footer-contact-inner">
+        <a href="https://maps.google.com" class="footer-contact-item" target="_blank" rel="noopener">
+          <svg class="footer-contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          14 Orchard Lane, Fresh Farm District
+        </a>
+        <a href="mailto:hello@stacklyshop.com" class="footer-contact-item">
+          <svg class="footer-contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hello@stacklyshop.com
+        </a>
+        <a href="tel:+18001234567" class="footer-contact-item">
+          <svg class="footer-contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15v1.92z"/></svg>
+          +1 800 123 4567
+        </a>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Mon–Sun: 6am – 10pm
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly Shop" style="height:34px;width:auto;filter:brightness(10);" loading="lazy" /></a>
+          <p>Premium fresh produce delivered with care since 2020. Your trusted partner for farm-fresh fruits and vegetables.</p>
+          <div class="footer-social" aria-label="Social media">
+            <a href="404.html" class="footer-social-btn" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="Twitter/X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+            <a href="404.html" class="footer-social-btn" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html">Citrus Fruits</a></li>
+            <li><a href="shop.html">Tropical Fruits</a></li>
+            <li><a href="shop.html">Berries</a></li>
+            <li><a href="shop.html">Organic Range</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">Our Farms</a></li>
+            <li><a href="about.html">Sustainability</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="404.html">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="tracking.html">Track Order</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+            <li><a href="404.html">Returns Policy</a></li>
+            <li><a href="404.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-text">© 2026 Stackly Shop. All rights reserved.</span>
+        <span class="footer-bottom-text">Made with 🍊 for fresh food lovers</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+    <div class="cart-header">
+      <span class="cart-title">Shopping Cart</span>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="cart-items" id="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="cart-total-price" id="cart-total-val">$0.00</span>
+      </div>
+      <button class="btn-primary" id="cart-checkout-btn" style="width:100%;justify-content:center;">
+        Proceed to Checkout
+        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Fix navbar logo on scroll (dark background → cream background)
+    const mainNavbar = document.getElementById('main-navbar');
+    const navLogoImg = document.getElementById('nav-logo-img');
+    if (mainNavbar && navLogoImg) {
+      const scrollObserver = new IntersectionObserver(([entry]) => {}, {});
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          navLogoImg.style.filter = 'none';
+          mainNavbar.classList.remove('hero-mode');
+        } else {
+          navLogoImg.style.filter = 'brightness(10)';
+          mainNavbar.classList.add('hero-mode');
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>

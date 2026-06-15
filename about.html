@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Stackly Shop</title>
+  <meta name="description" content="Learn about Stackly Shop's story, mission, and values. We connect you directly with the finest farms for premium fresh produce." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:40px;width:auto;filter:brightness(10);" /></div>
+    <div class="loader-bar"></div>
+    <span class="loader-text">Loading Story</span>
+  </div>
+
+  <nav class="navbar" id="main-navbar">
+    <div class="navbar-inner-wrap">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;" /></a>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="tracking.html">Track Order</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <button class="nav-icon-btn cart-icon open-cart-btn" aria-label="Cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <span class="nav-cart-badge" style="display:none;">0</span>
+          </button>
+          <div class="nav-login-btn-wrap"></div>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:28px;" /></a>
+        <button class="mobile-menu-close">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="tracking.html">Track Order</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-login-wrap"></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- About Hero -->
+    <div class="about-hero">
+      <img src="images/about_farm.webp" alt="Lush tropical farm at golden hour" class="about-hero-img" loading="eager" />
+      <div class="about-hero-content">
+        <span class="section-tag" style="color:var(--accent-green);background:rgba(168,204,60,0.1);border-color:rgba(168,204,60,0.2);">Our Story</span>
+        <h1>Grown With Love.<br/>Delivered With Care.</h1>
+        <p>We believe everyone deserves access to the freshest, most nutritious produce — sourced directly from our partner farms and delivered straight to your door.</p>
+      </div>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="section" aria-labelledby="mission-heading">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="why-grid">
+          <div data-anim="fade-right">
+            <span class="section-tag"><span class="section-tag-dot"></span> Our Mission</span>
+            <h2 class="section-h2" id="mission-heading" style="margin:0.75rem 0;">Connecting Farms to Families</h2>
+            <p style="color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem;">Stackly Shop was founded in 2020 with a simple but powerful mission: eliminate the middleman and bring farm-fresh produce directly to your table. We partner exclusively with certified organic farms, ensuring that every piece of fruit you receive is picked at peak ripeness within 24–48 hours of delivery.</p>
+            <p style="color:var(--text-muted);line-height:1.8;margin-bottom:2rem;">Our technology-driven supply chain maintains a precise cold-chain from farm to doorstep, preserving nutrients, flavor, and freshness in ways that conventional supermarkets simply cannot match.</p>
+            <a href="shop.html" class="btn-green">Shop Fresh Now
+              <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div data-anim="fade-left">
+            <img src="images/about_farm.webp" alt="Our partner farm" loading="lazy" style="border-radius:var(--border-radius-xl);width:100%;height:380px;object-fit:cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section-sm" style="background:var(--primary);" aria-labelledby="about-stats-heading">
+      <div class="container">
+        <h2 class="section-h2" id="about-stats-heading" style="display:none;">Company Stats</h2>
+        <div class="facts-grid">
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="100">
+            <span class="fact-num" data-target="2020" data-suffix="" style="color:var(--accent-green);">2020</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.65);">Founded</div>
+          </div>
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="200">
+            <span class="fact-num" data-target="200" data-suffix="+" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.65);">Farm Partners</div>
+          </div>
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="300">
+            <span class="fact-num" data-target="50000" data-suffix="+" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.65);">Happy Customers</div>
+          </div>
+          <div class="fact-card" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.1);" data-anim="fade-up" data-delay="400">
+            <span class="fact-num" data-target="50" data-suffix="+" style="color:var(--accent-green);">0</span>
+            <div class="fact-label" style="color:rgba(255,255,255,0.65);">Fruit Varieties</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="section" style="background:var(--bg-cream-dark);" aria-labelledby="values-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><span class="section-tag-dot"></span> What We Stand For</span>
+          <h2 class="section-h2" id="values-heading">Our Core Values</h2>
+          <p class="section-p">The principles that guide every decision we make — from how we source our produce to how we treat our customers.</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card" data-anim="fade-up" data-delay="100">
+            <div class="value-icon">🌿</div>
+            <h3>Sustainability</h3>
+            <p>We work exclusively with farms that use sustainable, pesticide-free practices. Our packaging is 100% biodegradable.</p>
+          </div>
+          <div class="value-card" data-anim="fade-up" data-delay="200">
+            <div class="value-icon">🤝</div>
+            <h3>Fair Partnerships</h3>
+            <p>We pay our farm partners fair prices, building long-term relationships that support rural communities.</p>
+          </div>
+          <div class="value-card" data-anim="fade-up" data-delay="300">
+            <div class="value-icon">✨</div>
+            <h3>Uncompromising Quality</h3>
+            <p>Every product passes a 7-point freshness inspection before it's approved for delivery. No exceptions.</p>
+          </div>
+          <div class="value-card" data-anim="fade-up" data-delay="400">
+            <div class="value-icon">💚</div>
+            <h3>Community Health</h3>
+            <p>We believe access to fresh, nutritious food is a right, not a privilege. We're working to make it affordable for everyone.</p>
+          </div>
+          <div class="value-card" data-anim="fade-up" data-delay="500">
+            <div class="value-icon">🔬</div>
+            <h3>Science-Backed Freshness</h3>
+            <p>Our cold-chain technology and harvest timing are guided by food science research to maximize nutrient retention.</p>
+          </div>
+          <div class="value-card" data-anim="fade-up" data-delay="600">
+            <div class="value-icon">📦</div>
+            <h3>Radical Transparency</h3>
+            <p>We tell you exactly where each product comes from, how it was grown, and when it was harvested. No secrets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section" aria-labelledby="team-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><span class="section-tag-dot"></span> Meet the Team</span>
+          <h2 class="section-h2" id="team-heading">The People Behind Stackly</h2>
+          <p class="section-p">A passionate team of food lovers, technologists, and sustainability advocates.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-card" data-anim="fade-up" data-delay="100">
+            <img src="images/review_person.webp" alt="Team member" class="team-card-img" loading="lazy" />
+            <div class="team-card-body">
+              <div class="team-card-name">Alex Rivera</div>
+              <div class="team-card-role">Co-Founder & CEO</div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5;">Former agricultural scientist turned entrepreneur. Alex's vision is a world where fresh food is accessible to everyone.</p>
+            </div>
+          </div>
+          <div class="team-card" data-anim="fade-up" data-delay="200">
+            <img src="images/review_lifestyle.webp" alt="Team member" class="team-card-img" loading="lazy" />
+            <div class="team-card-body">
+              <div class="team-card-name">Priya Sharma</div>
+              <div class="team-card-role">Head of Supply Chain</div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5;">15 years of experience in cold-chain logistics. Priya built our farm-to-door system from the ground up.</p>
+            </div>
+          </div>
+          <div class="team-card" data-anim="fade-up" data-delay="300">
+            <img src="images/about_farm.webp" alt="Team member" class="team-card-img" loading="lazy" style="object-position:top;" />
+            <div class="team-card-body">
+              <div class="team-card-name">Marcus Chen</div>
+              <div class="team-card-role">Head of Quality Control</div>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.5rem;line-height:1.5;">A certified nutritionist who created our 7-point freshness inspection protocol. Every order passes through his standards.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="background:var(--bg-cream-dark);">
+      <div class="container">
+        <div class="newsletter-section">
+          <span class="section-tag" style="color:var(--accent-green);background:rgba(168,204,60,0.1);border-color:rgba(168,204,60,0.2);">Join Us</span>
+          <h2 class="section-h2" style="color:#fff;">Taste the Difference Today</h2>
+          <p class="section-p" style="color:rgba(255,255,255,0.65);">Join 50,000+ customers who have switched to Stackly for premium fresh produce, delivered with love.</p>
+          <div style="display:flex;justify-content:center;gap:1rem;margin-top:2rem;flex-wrap:wrap;">
+            <a href="shop.html" class="btn-primary">Shop Now</a>
+            <a href="contact.html" class="btn-secondary" style="background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.3);">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background:var(--bg-hero);color:rgba(255,255,255,0.7);padding:2.5rem 0;text-align:center;">
+    <div class="container">
+      <a href="index.html"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;filter:brightness(10);margin:0 auto 1rem;" /></a>
+      <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:0.85rem;margin-bottom:1rem;">
+        <a href="index.html" style="color:rgba(255,255,255,0.6);">Home</a>
+        <a href="shop.html" style="color:rgba(255,255,255,0.6);">Shop</a>
+        <a href="about.html" style="color:rgba(255,255,255,0.6);">About</a>
+        <a href="contact.html" style="color:rgba(255,255,255,0.6);">Contact</a>
+      </div>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.3);">© 2026 Stackly Shop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true">
+    <div class="cart-header"><span class="cart-title">Shopping Cart</span><button class="cart-close" id="cart-close">&times;</button></div>
+    <div class="cart-items" id="cart-items-list"></div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Total</span><span class="cart-total-price" id="cart-total-val">$0.00</span></div>
+      <button class="btn-primary" id="cart-checkout-btn" style="width:100%;justify-content:center;">Proceed to Checkout</button>
+    </div>
+  </div>
+  <div id="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

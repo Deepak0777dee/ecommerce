@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Stackly Shop</title>
+  <meta name="description" content="Oops! The page you're looking for doesn't exist. Let's get you back to fresh produce." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background:var(--bg-cream);">
+
+  <div id="page-loader" role="status" aria-label="Loading">
+    <div class="loader-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:40px;filter:brightness(10);" /></div>
+    <div class="loader-bar"></div>
+    <span class="loader-text">Loading</span>
+  </div>
+
+  <nav class="navbar" id="main-navbar">
+    <div class="navbar-inner-wrap">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="images/logo-stackly.webp" alt="Stackly" style="height:30px;" /></a>
+        <div class="nav-actions" style="margin-left:auto;">
+          <div class="nav-login-btn-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-404">
+    <!-- Floating fruits animation -->
+    <div style="position:relative;margin-bottom:2rem;" aria-hidden="true">
+      <div style="font-size:clamp(5rem,15vw,10rem);font-family:var(--font-mono);font-weight:900;color:transparent;-webkit-text-stroke:2px rgba(45,80,22,0.12);line-height:1;user-select:none;">404</div>
+      <!-- Floating fruit decorations -->
+      <div style="position:absolute;top:-20px;left:50%;transform:translateX(-200px);animation:heroFloat 3s ease-in-out infinite;">
+        <img src="images/hero_strawberry.webp" alt="" style="width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));" />
+      </div>
+      <div style="position:absolute;top:10px;right:50%;transform:translateX(200px);animation:heroFloat 4s ease-in-out infinite 0.5s;">
+        <img src="images/product_kiwi.webp" alt="" style="width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));" />
+      </div>
+      <div style="position:absolute;bottom:-10px;left:50%;transform:translateX(-120px);animation:heroFloat 3.5s ease-in-out infinite 1s;">
+        <img src="images/product_mango.webp" alt="" style="width:60px;height:60px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.1));" />
+      </div>
+    </div>
+
+    <h1 class="error-title">Oops! Page Not Found</h1>
+    <p class="error-desc">The page you're looking for has gone missing, like a piece of fruit that disappeared from the basket. Let's get you back to the good stuff.</p>
+
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem;">
+      <a href="index.html" class="btn-green">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Back to Home
+      </a>
+      <a href="shop.html" class="btn-outline">
+        Browse Shop
+        <svg class="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--border-radius-xl);padding:2.5rem;max-width:600px;width:100%;text-align:left;">
+      <p style="font-family:var(--font-mono);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:1.25rem;">Quick Links</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+        <a href="shop.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
+          <span style="font-size:1.2rem;">🛒</span> Shop Products
+        </a>
+        <a href="tracking.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
+          <span style="font-size:1.2rem;">📦</span> Track Order
+        </a>
+        <a href="about.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
+          <span style="font-size:1.2rem;">🌿</span> About Us
+        </a>
+        <a href="contact.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
+          <span style="font-size:1.2rem;">💬</span> Contact Support
+        </a>
+        <a href="login.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
+          <span style="font-size:1.2rem;">👤</span> Login
+        </a>
+        <a href="dashboard.html" style="display:flex;align-items:center;gap:0.75rem;padding:0.875rem 1rem;background:var(--bg-cream);border-radius:var(--border-radius-md);color:var(--text-dark);font-weight:500;font-size:0.9rem;transition:var(--transition);" class="quick-link">
+          <span style="font-size:1.2rem;">📊</span> My Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <style>
+    .quick-link:hover {
+      background: rgba(45,80,22,0.06) !important;
+      color: var(--primary) !important;
+      transform: translateY(-2px);
+    }
+  </style>
+</body>
+</html>
