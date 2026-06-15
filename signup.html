@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -41,9 +41,9 @@
 
     <!-- Main Auth Area -->
     <div class="auth-main">
-      <a href="index.html" style="position:absolute; top:32px; left:32px; display:flex; align-items:center; gap:8px; font-weight:600; color:var(--text-secondary); transition:var(--transition); cursor:none;" id="back-btn">
+      <a href="#" onclick="history.back(); return false;" style="position:absolute; top:32px; left:32px; display:flex; align-items:center; gap:8px; font-weight:600; color:var(--text-secondary); transition:var(--transition); cursor:none;" id="back-btn">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to Store
+        Go Back
       </a>
 
       <div class="auth-container">
@@ -55,7 +55,7 @@
         <form class="auth-form" id="signup-form">
           <div class="auth-input-group" id="grp-signup-name">
             <label class="auth-label" for="signup-name">Full Name</label>
-            <input type="text" id="signup-name" class="auth-input" placeholder="John Doe">
+            <input type="text" id="signup-name" class="auth-input" placeholder="John Doe" oninput="this.value = this.value.replace(/[^A-Za-z\s]/g, '')">
             <div class="auth-error-text" id="err-signup-name">Please enter your name.</div>
           </div>
           <div class="auth-input-group" id="grp-signup-email">

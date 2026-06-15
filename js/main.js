@@ -516,14 +516,21 @@ if (contactForm) {
 
     if (!isValid) return;
 
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const original = btn.innerHTML;
-    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px; display:inline-block; vertical-align:middle;"><path d="M20 6L9 17l-5-5"/></svg> Message Sent!';
-    btn.style.background = 'linear-gradient(135deg, #4CAF50, #2E7D32)';
+    contactForm.reset();
+
+    // Toaster notification
+    const toaster = document.createElement('div');
+    toaster.className = 'toaster';
+    toaster.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Message Sent Successfully!';
+    document.body.appendChild(toaster);
+
+    // Trigger animation
+    setTimeout(() => toaster.classList.add('show'), 10);
+
+    // Remove after 3 seconds
     setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      contactForm.reset();
+      toaster.classList.remove('show');
+      setTimeout(() => toaster.remove(), 400);
     }, 3000);
   });
 }
@@ -616,3 +623,73 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(backBtn);
   }
 });
+
+// ─── ACETERNITY UI ANIMATIONS ───
+document.addEventListener('DOMContentLoaded', () => {
+  // Spotlight Glow Cursor Tracking
+  const spotlightWrappers = document.querySelectorAll('.spotlight-card-wrapper');
+  
+  spotlightWrappers.forEach(wrapper => {
+    wrapper.addEventListener('mousemove', (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const glow = wrapper.querySelector('.spotlight-glow');
+      if (glow) {
+        glow.style.setProperty('--mouseX', x + 'px');
+        glow.style.setProperty('--mouseY', y + 'px');
+      }
+      
+      // 3D Tilt Effect
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5; // Max 5 deg tilt
+      const rotateY = ((x - centerX) / centerX) * 5;
+      
+      wrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      wrapper.style.zIndex = '10';
+      wrapper.style.transition = 'none'; // remove transition for smooth tracking
+    });
+    
+    wrapper.addEventListener('mouseleave', () => {
+      wrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      wrapper.style.zIndex = '1';
+      wrapper.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+    });
+  });
+
+  // Re-run GSAP triggers if any layout shifted
+  if (typeof ScrollTrigger !== 'undefined') {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
+  }
+});
+
+// 3D Hero Image Mouse Tracking
+const heroVisual = document.querySelector('.hero-visual');
+const heroImageWrapper = document.querySelector('.hero-image-wrapper');
+if (heroVisual && heroImageWrapper) {
+  heroVisual.addEventListener('mousemove', (e) => {
+    const rect = heroVisual.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Calculate rotation (-15 to 15 degrees)
+    const xPct = (x / rect.width) - 0.5;
+    const yPct = (y / rect.height) - 0.5;
+    
+    const rotateY = xPct * 30; // left-right
+    const rotateX = yPct * -30; // up-down
+    
+    heroImageWrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+    heroImageWrapper.style.transition = 'transform 0.1s ease-out';
+  });
+  
+  heroVisual.addEventListener('mouseleave', () => {
+    heroImageWrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    heroImageWrapper.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+  });
+}
+

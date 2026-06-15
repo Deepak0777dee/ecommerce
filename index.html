@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -109,8 +109,8 @@
           </div>
 
           <div class="hero-visual">
-            <div class="hero-image-wrapper">
-              <img src="images/product_headphones.webp" alt="Featured Premium Headphones" class="hero-main-image" width="560" height="560" />
+            <div class="hero-image-wrapper" style="background: transparent; border: none; box-shadow: none; backdrop-filter: none; padding: 0;">
+              <img src="images/hero_headphones.webp" alt="Featured Premium Headphones" class="hero-main-image" width="560" height="560" style="filter: drop-shadow(0 20px 50px rgba(78,205,196,0.15)); width: 100%; height: auto; transform: scale(1.1);" />
             </div>
           </div>
         </div>
@@ -181,42 +181,42 @@
           </div>
           <a href="shop.html" class="btn btn-outline reveal">View All Categories</a>
         </div>
-        <div class="categories-grid">
-          <div class="category-card" data-hover>
+        <div class="bento-grid">
+          <div class="bento-item bento-large reveal" data-hover>
             <img src="images/category_tech.webp" alt="Electronics & Technology" loading="lazy" />
-            <div class="category-card-overlay">
+            <div class="bento-overlay">
               <span class="category-tag">Popular</span>
-              <h3 class="category-name">Electronics</h3>
-              <p class="category-count">324 Products</p>
-              <a href="shop.html" class="category-link">Shop Now →</a>
+              <h3 class="category-name" style="font-size:2.2rem; margin-bottom:8px;">Electronics</h3>
+              <p class="category-count" style="opacity:0.8;">324 Products</p>
             </div>
+            <a href="shop.html" style="position:absolute; inset:0; z-index:5;" aria-label="Shop Electronics"></a>
           </div>
-          <div class="category-card" data-hover>
+          <div class="bento-item bento-wide reveal reveal-delay-1" data-hover>
             <img src="images/category_fashion.webp" alt="Fashion & Accessories" loading="lazy" />
-            <div class="category-card-overlay">
+            <div class="bento-overlay">
               <span class="category-tag">Trending</span>
-              <h3 class="category-name">Fashion</h3>
-              <p class="category-count">512 Products</p>
-              <a href="shop.html" class="category-link">Shop Now →</a>
+              <h3 class="category-name" style="font-size:1.6rem; margin-bottom:4px;">Fashion</h3>
+              <p class="category-count" style="opacity:0.8;">512 Products</p>
             </div>
+            <a href="shop.html" style="position:absolute; inset:0; z-index:5;" aria-label="Shop Fashion"></a>
           </div>
-          <div class="category-card" data-hover>
+          <div class="bento-item reveal reveal-delay-2" data-hover>
             <img src="images/product_perfume.webp" alt="Beauty & Fragrance" loading="lazy" />
-            <div class="category-card-overlay">
+            <div class="bento-overlay">
               <span class="category-tag">New</span>
-              <h3 class="category-name">Beauty</h3>
-              <p class="category-count">187 Products</p>
-              <a href="shop.html" class="category-link">Shop Now →</a>
+              <h3 class="category-name" style="font-size:1.4rem; margin-bottom:4px;">Beauty</h3>
+              <p class="category-count" style="opacity:0.8;">187 Products</p>
             </div>
+            <a href="shop.html" style="position:absolute; inset:0; z-index:5;" aria-label="Shop Beauty"></a>
           </div>
-          <div class="category-card" data-hover>
+          <div class="bento-item reveal reveal-delay-3" data-hover>
             <img src="images/product_bag.webp" alt="Bags & Accessories" loading="lazy" />
-            <div class="category-card-overlay">
+            <div class="bento-overlay">
               <span class="category-tag">Premium</span>
-              <h3 class="category-name">Accessories</h3>
-              <p class="category-count">256 Products</p>
-              <a href="shop.html" class="category-link">Shop Now →</a>
+              <h3 class="category-name" style="font-size:1.4rem; margin-bottom:4px;">Accessories</h3>
+              <p class="category-count" style="opacity:0.8;">256 Products</p>
             </div>
+            <a href="shop.html" style="position:absolute; inset:0; z-index:5;" aria-label="Shop Accessories"></a>
           </div>
         </div>
       </div>
@@ -234,7 +234,8 @@
         </div>
         <div class="products-grid">
           <!-- Product 1 -->
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_headphones.webp" alt="AuraMax Pro Headphones" loading="lazy" />
               <span class="product-card-badge badge-hot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Hot</span>
@@ -262,7 +263,8 @@
           </article>
 
           <!-- Product 2 -->
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_smartwatch.webp" alt="Apex Series Smartwatch" loading="lazy" />
               <span class="product-card-badge badge-new">New</span>
@@ -289,7 +291,8 @@
           </article>
 
           <!-- Product 3 -->
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_speaker.webp" alt="SoundPod Speaker" loading="lazy" />
               <span class="product-card-badge badge-sale">−30%</span>
@@ -317,7 +320,8 @@
           </article>
 
           <!-- Product 4 -->
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_sneakers.webp" alt="Aero Runner Sneakers" loading="lazy" />
               <span class="product-card-badge badge-new">New</span>
@@ -430,7 +434,8 @@
           <a href="shop.html" class="btn btn-outline reveal">View All New</a>
         </div>
         <div class="products-grid">
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_laptop.webp" alt="SlateBook Pro Laptop" loading="lazy" />
               <span class="product-card-badge badge-new">New</span>
@@ -453,7 +458,8 @@
             </div>
           </article>
 
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_perfume.webp" alt="Aura Signature Perfume" loading="lazy" />
               <span class="product-card-badge badge-new">New</span>
@@ -476,7 +482,8 @@
             </div>
           </article>
 
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_sunglasses.webp" alt="Luxe Aviator Sunglasses" loading="lazy" />
               <span class="product-card-badge badge-hot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Hot</span>
@@ -502,7 +509,8 @@
             </div>
           </article>
 
-          <article class="product-card" data-hover>
+          <article class="product-card spotlight-card-wrapper" data-hover>
+            <div class="spotlight-glow"></div>
             <div class="product-card-image">
               <img src="images/product_bag.webp" alt="Vogue Leather Handbag" loading="lazy" />
               <span class="product-card-badge badge-sale">−25%</span>
@@ -576,37 +584,74 @@
           <h2 class="section-title reveal" id="testimonials-heading">What People <span>Say</span></h2>
           <p class="section-subtitle reveal" style="margin:16px auto 0;">Thousands of happy customers trust Stackly for their premium shopping needs.</p>
         </div>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <div class="testimonial-quote-mark">"</div>
-            <p class="testimonial-text">The quality of products on Stackly is absolutely unmatched. I ordered the AuraMax headphones and they arrived beautifully packaged. Truly a premium experience from start to finish.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar">SK</div>
-              <div>
-                <div class="testimonial-name">Sarah Kim</div>
-                <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+        <div class="marquee-container reveal">
+          <div class="marquee-track">
+            <!-- Group 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-mark">"</div>
+              <p class="testimonial-text">The quality of products on Stackly is absolutely unmatched. I ordered the AuraMax headphones and they arrived beautifully packaged. Truly a premium experience from start to finish.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">SK</div>
+                <div>
+                  <div class="testimonial-name">Sarah Kim</div>
+                  <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote-mark">"</div>
-            <p class="testimonial-text">I've shopped on dozens of platforms but Stackly feels different. The website is beautiful, products are genuine, and shipping was incredibly fast. Already placed my third order!</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: var(--gradient-gold); color:var(--navy);">MR</div>
-              <div>
-                <div class="testimonial-name">Marcus Rivera</div>
-                <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote-mark">"</div>
+              <p class="testimonial-text">I've shopped on dozens of platforms but Stackly feels different. The website is beautiful, products are genuine, and shipping was incredibly fast. Already placed my third order!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: var(--gradient-gold); color:var(--navy);">MR</div>
+                <div>
+                  <div class="testimonial-name">Marcus Rivera</div>
+                  <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="testimonial-card">
-            <div class="testimonial-quote-mark">"</div>
-            <p class="testimonial-text">Customer support is phenomenal. Had a small issue with sizing and it was resolved in minutes. The team really goes above and beyond. Highly recommend Stackly to everyone.</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" style="background: linear-gradient(135deg,#9B59B6,#6C3483);">PL</div>
-              <div>
-                <div class="testimonial-name">Priya Lakhani</div>
-                <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote-mark">"</div>
+              <p class="testimonial-text">Customer support is phenomenal. Had a small issue with sizing and it was resolved in minutes. The team really goes above and beyond. Highly recommend Stackly to everyone.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg,#9B59B6,#6C3483);">PL</div>
+                <div>
+                  <div class="testimonial-name">Priya Lakhani</div>
+                  <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
+              </div>
+            </div>
+            <!-- Duplicated for Marquee Loop -->
+            <div class="testimonial-card">
+              <div class="testimonial-quote-mark">"</div>
+              <p class="testimonial-text">The quality of products on Stackly is absolutely unmatched. I ordered the AuraMax headphones and they arrived beautifully packaged. Truly a premium experience from start to finish.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">SK</div>
+                <div>
+                  <div class="testimonial-name">Sarah Kim</div>
+                  <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote-mark">"</div>
+              <p class="testimonial-text">I've shopped on dozens of platforms but Stackly feels different. The website is beautiful, products are genuine, and shipping was incredibly fast. Already placed my third order!</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: var(--gradient-gold); color:var(--navy);">MR</div>
+                <div>
+                  <div class="testimonial-name">Marcus Rivera</div>
+                  <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-quote-mark">"</div>
+              <p class="testimonial-text">Customer support is phenomenal. Had a small issue with sizing and it was resolved in minutes. The team really goes above and beyond. Highly recommend Stackly to everyone.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg,#9B59B6,#6C3483);">PL</div>
+                <div>
+                  <div class="testimonial-name">Priya Lakhani</div>
+                  <div class="testimonial-role">Verified Buyer · <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
+                </div>
               </div>
             </div>
           </div>
@@ -668,16 +713,16 @@
           </a>
           <p class="footer-brand-desc">Stackly is a premium curated marketplace delivering exceptional products and experiences to discerning customers worldwide.</p>
           <div class="footer-socials">
-            <a href="#" class="social-btn" aria-label="Instagram">
+            <a href="404.html" class="social-btn" aria-label="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="#" class="social-btn" aria-label="Twitter/X">
+            <a href="404.html" class="social-btn" aria-label="Twitter/X">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="#" class="social-btn" aria-label="Facebook">
+            <a href="404.html" class="social-btn" aria-label="Facebook">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="#" class="social-btn" aria-label="YouTube">
+            <a href="404.html" class="social-btn" aria-label="YouTube">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
             </a>
           </div>
@@ -698,21 +743,21 @@
           <ul class="footer-links">
             <li><a href="about.html" class="footer-link">About Us</a></li>
             <li><a href="contact.html" class="footer-link">Contact</a></li>
-            <li><a href="#" class="footer-link">Careers</a></li>
-            <li><a href="#" class="footer-link">Press & Media</a></li>
-            <li><a href="#" class="footer-link">Partner With Us</a></li>
-            <li><a href="#" class="footer-link">Sustainability</a></li>
+            <li><a href="404.html" class="footer-link">Careers</a></li>
+            <li><a href="404.html" class="footer-link">Press & Media</a></li>
+            <li><a href="404.html" class="footer-link">Partner With Us</a></li>
+            <li><a href="404.html" class="footer-link">Sustainability</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer-col-title">Support</h3>
           <ul class="footer-links">
-            <li><a href="#" class="footer-link">Help Center</a></li>
-            <li><a href="#" class="footer-link">Track Order</a></li>
-            <li><a href="#" class="footer-link">Returns & Refunds</a></li>
-            <li><a href="#" class="footer-link">Shipping Info</a></li>
-            <li><a href="#" class="footer-link">Privacy Policy</a></li>
-            <li><a href="#" class="footer-link">Terms of Service</a></li>
+            <li><a href="404.html" class="footer-link">Help Center</a></li>
+            <li><a href="404.html" class="footer-link">Track Order</a></li>
+            <li><a href="404.html" class="footer-link">Returns & Refunds</a></li>
+            <li><a href="404.html" class="footer-link">Shipping Info</a></li>
+            <li><a href="404.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="404.html" class="footer-link">Terms of Service</a></li>
           </ul>
         </div>
       </div>
@@ -726,6 +771,10 @@
           <span class="payment-badge">Apple Pay</span>
         </div>
       </div>
+    </div>
+  
+    <div style="overflow: hidden; width: 100%; margin-top: 0px;">
+      <h1 class="footer-giant-text">STACKLY</h1>
     </div>
   </footer>
 
