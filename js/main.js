@@ -761,3 +761,21 @@ function setupAceternityText() {
     }
   });
 }
+
+// ─── Password Visibility Toggle ───
+window.togglePassword = function(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+  input.setAttribute('type', type);
+  
+  const eye = btn.querySelector('.eye-icon');
+  const eyeOff = btn.querySelector('.eye-off-icon');
+  if (type === 'text') {
+    eye.style.display = 'none';
+    eyeOff.style.display = 'block';
+  } else {
+    eye.style.display = 'block';
+    eyeOff.style.display = 'none';
+  }
+};
