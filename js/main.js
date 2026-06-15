@@ -80,6 +80,16 @@ mobileOverlay?.addEventListener('click', () => {
   hamburger?.querySelectorAll('span').forEach(s => s.style.transform = s.style.opacity = '');
 });
 
+document.addEventListener('click', (e) => {
+  if (e.target.closest('#mobile-nav-close')) {
+    mobileNav?.classList.remove('open');
+    mobileOverlay?.classList.remove('open');
+    hamburger?.classList.remove('active');
+    hamburger?.querySelectorAll('span').forEach(s => s.style.transform = s.style.opacity = '');
+  }
+});
+
+
 // ─── Active nav link ───
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
@@ -163,6 +173,7 @@ function initGSAP() {
   if (typeof gsap === 'undefined') return;
 
   gsap.registerPlugin(ScrollTrigger);
+  setupAceternityText();
 
   // --- Mouse Glow ---
   let glow = document.querySelector('.mouse-glow');
@@ -187,16 +198,6 @@ function initGSAP() {
     el.style.opacity = '1'; 
     el.style.transform = 'none';
   });
-
-  // Hero text stagger animation
-  const heroTitle = document.querySelector('.hero-title');
-  if (heroTitle) {
-    const lines = heroTitle.querySelectorAll('.line');
-    gsap.fromTo(lines, 
-      { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, duration: 1, stagger: 0.15, ease: 'power3.out', delay: 0.3 }
-    );
-  }
 
   const heroElements = [
     { selector: '.hero-badge', delay: 0.1 },
@@ -693,3 +694,70 @@ if (heroVisual && heroImageWrapper) {
   });
 }
 
+
+
+// ─── ACETERNITY TEXT ANIMATION ───
+function setupAceternityText() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  const titles = document.querySelectorAll('.section-title, .hero-title, .section-eyebrow, .footer-giant-text');
+  
+  titles.forEach(title => {
+    // Avoid double splitting
+    if (title.classList.contains('text-split-done')) return;
+    title.classList.add('text-split-done');
+
+    const processNode = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        if (!text.trim()) return null;
+        const words = text.split(/(\s+)/);
+        const fragment = document.createDocumentFragment();
+        words.forEach(word => {
+          if (!word.trim()) {
+            fragment.appendChild(document.createTextNode(word));
+            return;
+          }
+          const wrap = document.createElement('span');
+          wrap.className = 'word-wrap';
+          wrap.innerHTML = `<span class="word-inner">${word}</span>`;
+          fragment.appendChild(wrap);
+        });
+        return fragment;
+      } else if (node.nodeType === Node.ELEMENT_NODE && !node.classList.contains('word-wrap') && !node.classList.contains('word-inner')) {
+        const children = Array.from(node.childNodes);
+        children.forEach(child => {
+          const replacement = processNode(child);
+          if (replacement) {
+            node.replaceChild(replacement, child);
+          }
+        });
+        return null;
+      }
+      return null;
+    };
+
+    Array.from(title.childNodes).forEach(child => {
+      const replacement = processNode(child);
+      if (replacement) {
+        title.replaceChild(replacement, child);
+      }
+    });
+
+    const wordsInner = title.querySelectorAll('.word-inner');
+    if (wordsInner.length) {
+      gsap.to(wordsInner, {
+        scrollTrigger: {
+          trigger: title,
+          start: 'top 90%',
+        },
+        y: 0,
+        rotateX: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.05,
+        ease: 'power3.out',
+        delay: title.classList.contains('hero-title') ? 0.3 : 0
+      });
+    }
+  });
+}

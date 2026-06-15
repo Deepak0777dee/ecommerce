@@ -3321,3 +3321,72 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(239,68,68,0.05);
 }
 
+/* Aceternity Text Effects */
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-right: 0.2em; /* space between words */
+  line-height: inherit;
+}
+.word-inner {
+  display: inline-block;
+  transform: translateY(100%) rotateX(-45deg);
+  opacity: 0;
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+
+/* Fix for background-clip text inside GSAP inline-block transforms */
+.line-accent, .hero-title span.line-accent {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.line-accent .word-inner {
+  background: var(--gradient-teal) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Mobile Nav Fixes */
+@media (max-width: 768px) {
+  .nav-login-wrap {
+    display: none !important;
+  }
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2001;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-nav-close:hover {
+  color: var(--gold);
+}
+
+/* Fix for background-clip text inside GSAP inline-block transforms for footer */
+.footer-giant-text {
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+.footer-giant-text .word-inner {
+  background: linear-gradient(180deg, rgba(78,205,196,0.3) 0%, rgba(26,54,93,0.05) 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
